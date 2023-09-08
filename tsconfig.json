@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
+    "baseUrl": "src/",
     "outDir": "./dist/",
-    "module": "es6",
+    "module": "esnext",
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,
@@ -17,5 +18,7 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "include": ["src"],
+  "exclude":["node_modules","build"]
 }

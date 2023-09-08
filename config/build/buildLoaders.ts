@@ -16,7 +16,6 @@ export const buildLoaders = (isDev: boolean): webpack.RuleSetRule[] => {
                     loader: "css-loader",
                     options: {
                         modules: {
-                            modules: true,
                             auto: (resPath: string) => Boolean(resPath.includes(".module.")),
                             localIdentName: isDev ?
                                 '[path][name]__[local]--[hash:base64:5]' :

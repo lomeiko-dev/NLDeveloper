@@ -1,0 +1,1 @@
+export {pathRoute} from "./path-route";
