@@ -14,7 +14,7 @@ interface IImageProps extends React.ImgHTMLAttributes<HTMLImageElement>{
     height?: string,
 }
 
-export const Image: React.FC<IImageProps> = (props) => {
+export const Image: React.FC<IImageProps> = React.memo((props) => {
     const {
         className,
         types = imageTypes.BORDER,
@@ -30,4 +30,4 @@ export const Image: React.FC<IImageProps> = (props) => {
             <img width={width} {...otherProps}/>
         </div>
     )
-}
+});

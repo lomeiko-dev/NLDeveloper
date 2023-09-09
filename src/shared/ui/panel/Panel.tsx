@@ -24,7 +24,7 @@ export interface IPanelProps {
     background?: panelColor,
 }
 
-export const Panel: React.FC<IPanelProps> = (props) => {
+export const Panel: React.FC<IPanelProps> = React.memo((props) => {
     const {
         children,
         className,
@@ -38,4 +38,4 @@ export const Panel: React.FC<IPanelProps> = (props) => {
             {children}
         </div>
     )
-}
+});

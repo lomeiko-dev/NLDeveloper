@@ -16,7 +16,7 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
     styled?: buttonStyled,
 }
 
-export const Button: React.FC<IButtonProps> = (props) => {
+export const Button: React.FC<IButtonProps> = React.memo((props) => {
     const {
         children,
         className,
@@ -32,4 +32,4 @@ export const Button: React.FC<IButtonProps> = (props) => {
             {children}
         </button>
     )
-}
+});

@@ -3,8 +3,9 @@ import style from "./LinkBar.module.scss";
 import VkIcon from "shared/assets/img/links-icon/vk.svg";
 import GitIcon from "shared/assets/img/links-icon/github.svg";
 import TelegramIcon from "shared/assets/img/links-icon/telegram.svg";
+import React from "react";
 
-export const LinkBar = () => {
+export const LinkBar = React.memo(() => {
     return (
         <div className={style.bar}>
             <a className={style.link} href="https://vk.com/id390878963">
@@ -18,4 +19,4 @@ export const LinkBar = () => {
             </a>
         </div>
     )
-}
+});

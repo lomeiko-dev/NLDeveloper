@@ -12,7 +12,7 @@ interface ILinkProps extends LinkProps{
     size?: enumSized,
 }
 
-export const Link: React.FC<ILinkProps> = (props) => {
+export const Link: React.FC<ILinkProps> = React.memo((props) => {
     const {
         children,
         className,
@@ -25,4 +25,4 @@ export const Link: React.FC<ILinkProps> = (props) => {
             className={classNames(style.link, className, sized[size])}
             {...otherProps}> {children} </ReactLink>
     )
-}
+});

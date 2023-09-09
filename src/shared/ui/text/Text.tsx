@@ -14,7 +14,7 @@ interface ITextProps {
     size?: enumSized,
 }
 
-export const Text: React.FC<ITextProps> = (props) => {
+export const Text: React.FC<ITextProps> = React.memo((props) => {
     const {
         children,
         className,
@@ -27,4 +27,4 @@ export const Text: React.FC<ITextProps> = (props) => {
             {children}
         </div>
     )
-}
+});

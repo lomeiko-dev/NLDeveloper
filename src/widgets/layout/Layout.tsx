@@ -6,7 +6,7 @@ interface ILayoutProps {
     children: React.ReactNode,
     className?: string,
 }
-export const Layout: React.FC<ILayoutProps> = (props) => {
+export const Layout: React.FC<ILayoutProps> =  (props) => {
     return (
         <div className={style.layout}>
             <SideBar/>

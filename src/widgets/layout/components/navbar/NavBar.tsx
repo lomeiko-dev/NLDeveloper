@@ -9,7 +9,7 @@ import MainIcon from "shared/assets/img/nav-icon/main.svg";
 import BlogIcon from "shared/assets/img/nav-icon/blog.svg";
 import ProjectsIcon from "shared/assets/img/nav-icon/projects.svg";
 
-export const NavBar = () => {
+export const NavBar = React.memo(() => {
     return (
         <div className={style.bar_wrapper}>
             <div className={style.bar}>
@@ -30,4 +30,4 @@ export const NavBar = () => {
             </div>
         </div>
     )
-}
+});

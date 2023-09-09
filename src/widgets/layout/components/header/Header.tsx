@@ -9,7 +9,7 @@ interface IHeaderProps {
     className?: string
 }
 
-export const Header: React.FC<IHeaderProps> = (props) => {
+export const Header: React.FC<IHeaderProps> = React.memo((props) => {
     return (
         <div className={classNames(style.header, props.className)}>
             <Image
@@ -21,4 +21,4 @@ export const Header: React.FC<IHeaderProps> = (props) => {
             <Text className={style.name} size={enumSized.LARGE}>Никита Ломейко</Text>
         </div>
     )
-}
+});
