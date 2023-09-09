@@ -1,33 +1,26 @@
 .bar{
   position: relative;
-  display: flex;
-  flex-direction: column;
 
   width: 100%;
   max-width: 300px;
   height: 100vh;
-  background: var(--secondary-bg-color);
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  transition: .5s;
   min-height: 700px;
+}
+
+.bar:hover {
+  width: 100%;
+  max-width: 300px;
+
+  div {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 800px) {
   .bar{
     width: 50px;
-    background: #3c8bff;
     div{
-      display: none;
-    }
-  }
-
-  .bar:hover{
-    width: 400px;
-    background: #ffffff;
-    min-width: 300px;
-    div{
-      display: flex;
+      opacity: 0;
     }
   }
 }

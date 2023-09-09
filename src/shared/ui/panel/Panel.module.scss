@@ -1,0 +1,14 @@
+.panel{
+  display: flex;
+  overflow: hidden;
+  transition: .5s all;
+}
+.column{ flex-direction: column; }
+.line{ flex-wrap: wrap }
+
+.secondary{ background: var(--secondary-bg-color) }
+.ternary{ background: var(--ternary-bg-color) }
+
+.shadow{
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
