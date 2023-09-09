@@ -6,7 +6,7 @@
   width: 100%;
   max-width: 300px;
   height: 100vh;
-  background: #ffffff;
+  background: var(--secondary-bg-color);
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   transition: .5s;

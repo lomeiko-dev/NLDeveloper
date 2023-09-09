@@ -1,11 +1,18 @@
 @import "normalize";
 @import "vars";
+@import "themes/dark";
+@import "themes/light";
 
 body{
   height: 100vh;
   font: var(--font-s);
-  background: #efefef;
   min-width: 500px;
+}
+
+.app{
+  background: var(--primary-bg-color);
+  color: var(--text-color);
+  transition: .5s background-color;
 }
 
 .container{
