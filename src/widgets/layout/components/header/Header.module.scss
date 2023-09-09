@@ -1,0 +1,24 @@
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #4E5AEA;
+  background: linear-gradient(to bottom left, #4E5AEA, #2b359c);
+  height: var(--header-height);
+}
+
+@media (max-height: 800px) {
+  .header{
+    height: calc(var(--header-height) - 40px)
+  }
+}
+
+.avatar{
+  border: 3px solid #fff;
+}
+
+.name{
+  color: #fff;
+}

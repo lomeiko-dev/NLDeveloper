@@ -1,2 +1,16 @@
 @import "normalize";
 @import "vars";
+
+body{
+  height: 100vh;
+  font: var(--font-s);
+  background: #efefef;
+  min-width: 500px;
+}
+
+.container{
+  width: 100%;
+  max-width: 1600px;
+  margin: 10px auto;
+  padding: 0 10px;
+}

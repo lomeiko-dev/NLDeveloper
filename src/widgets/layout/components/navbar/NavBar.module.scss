@@ -1,0 +1,38 @@
+.bar_wrapper{
+  position: absolute;
+  top: 60%;
+  left: 0;
+}
+
+.bar{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.bar:before{
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 3rem;
+  width: 200px;
+  height: 2px;
+  background: #333;
+}
+
+.bar:after{
+  content: "";
+  position: absolute;
+  top: 140px;
+  left: 3rem;
+  width: 200px;
+  height: 2px;
+  background: #333;
+}
+
+.link{
+  margin: 0 150px;
+}
+.icon_link{
+  margin: 0 20px;
+}
