@@ -1,9 +1,8 @@
 .bar{
-  position: absolute;
-  left: 25%;
-  bottom: 100px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 10px 0;
 }
 .link{
   margin: 0 10px;

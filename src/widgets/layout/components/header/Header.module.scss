@@ -1,21 +1,14 @@
 .header{
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background: linear-gradient(to bottom left, #4E5AEA, #2b359c);
-  height: var(--header-height);
-}
-
-@media (max-height: 800px) {
-  .header{
-    height: calc(var(--header-height) - 40px)
-  }
+  background: var(--board-color);
 }
 
 .avatar{
+  border-radius: 50%;
   border: 3px solid #fff;
+  padding: 5px;
 }
 
 .name{

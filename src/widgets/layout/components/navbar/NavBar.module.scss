@@ -1,31 +1,29 @@
 .bar_wrapper{
-  position: absolute;
-  top: 60%;
-  left: 0;
+    display: flex;
 }
 
 .bar{
   position: relative;
-  display: flex;
+  margin: 0 auto;
   flex-direction: column;
+  width: auto;
 }
 
 .bar:before{
   content: "";
   position: absolute;
   top: -30px;
-  left: 3rem;
-  width: 200px;
+  left: 1rem;
+  width: 210px;
   height: 2px;
   background: var(--text-color);
 }
-
 .bar:after{
   content: "";
   position: absolute;
   top: 140px;
-  left: 3rem;
-  width: 200px;
+  left: 1rem;
+  width: 210px;
   height: 2px;
   background: var(--text-color);
 }

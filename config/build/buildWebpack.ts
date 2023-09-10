@@ -24,7 +24,7 @@ export const buildWebpack = (config: IBuildWebpack): webpack.Configuration => {
             path: config.paths.buildPath,
             clean: true,
         },
-        plugins: buildPlugins(config.paths.htmlPath),
+        plugins: buildPlugins(config.paths.htmlPath, config.isDev),
         devServer: buildDevServer(config), // FIX!!!!!!!!!!!!!!!!!!!!!!,
         devtool: 'cheap-module-source-map'
     }

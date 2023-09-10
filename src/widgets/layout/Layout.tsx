@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./Layout.module.scss";
+
 import {SideBar} from "./components/sidebar/SideBar";
 
 interface ILayoutProps {

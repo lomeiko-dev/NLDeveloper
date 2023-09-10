@@ -2,6 +2,7 @@
   margin: 5px;
   padding: 10px 5px;
   border-radius: 5px;
+  color: #fff;
 
   transition: .4s background-color;
 }
@@ -19,4 +20,8 @@
 .filled{
   background: #3c8bff;
   color: #fff;
+}
+.circle{
+  background: #3c8bff;
+  border-radius: 50%;
 }

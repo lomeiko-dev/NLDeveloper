@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./NavBar.module.scss";
-import {Link} from "shared/ui/link/Link";
 
+import {Link} from "shared/ui/link/Link"
 import {enumSized} from "shared/ui/types";
 import {pathRoute} from "shared/config/route";
 
