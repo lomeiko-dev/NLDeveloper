@@ -12,18 +12,17 @@ import {LinkBar} from "../linkbar/LinkBar";
 import {Settings} from "../settings/Settings";
 import classNames from "classnames";
 
-import {MIN_WIDTH_APP} from "shared/assets/consts/vars";
+import {useAdaptation} from "shared/lib/hooks/use-adaptation/useAdaptation";
 
 export const SideBar = React.memo(() => {
     const [isOpen, setIsOpen] = useState(true);
+    const device = useAdaptation();
     const toggleBar = () => {
-        if(window.innerWidth <= MIN_WIDTH_APP) {
-            setIsOpen(prevState => !prevState);
-        }
+        setIsOpen(prevState => !prevState);
     }
 
     const checkingInnerWithSetButton = () => {
-        if(window.innerWidth <= MIN_WIDTH_APP) {
+        if(device === "mobile") {
             return(
                 <Button
                     onClick={toggleBar}

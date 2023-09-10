@@ -1,7 +1,11 @@
 @import "normalize";
 @import "vars";
+
 @import "themes/dark";
 @import "themes/light";
+
+@import "devices/desktop";
+@import "devices/mobile";
 
 body{
   height: 100vh;
