@@ -1,1 +1,1 @@
-export const MIN_WIDTH_APP = 800;
+export const MIN_WIDTH_APP = 900;

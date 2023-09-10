@@ -8,7 +8,6 @@ import {enumSized} from "shared/ui/types";
 import {Header} from "../header/Header";
 import {NavBar} from "../navbar/NavBar";
 import {Footer} from "../footer/Footer";
-import {LinkBar} from "../linkbar/LinkBar";
 import {Settings} from "../settings/Settings";
 import classNames from "classnames";
 
@@ -45,17 +44,10 @@ export const SideBar = React.memo(() => {
 
             {isOpen && (
                 <>
-                    <div className={style.top}>
-                        <Header/>
-                        <Settings/>
-                    </div>
-                    <div className={style.middle}>
-                        <NavBar/>
-                    </div>
-                    <div className={style.bottom}>
-                        <LinkBar/>
-                        <Footer/>
-                    </div>
+                    <Header/>
+                    <Settings/>
+                    <NavBar/>
+                    <Footer/>
                 </>
             )}
 

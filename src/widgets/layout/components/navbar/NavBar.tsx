@@ -11,7 +11,7 @@ import ProjectsIcon from "shared/assets/img/nav-icon/projects.svg";
 
 export const NavBar = React.memo(() => {
     return (
-        <div className={style.bar_wrapper}>
+        <div className={style.bar_container}>
             <div className={style.bar}>
                 <Link size={enumSized.MIDDLE} to={pathRoute.main}>
                     <MainIcon className={style.icon_link} width="30px"/>

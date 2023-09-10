@@ -15,17 +15,5 @@
 
   --board-color: linear-gradient(to bottom left, #4E5AEA, #2b359c);
 
-  --sidebar-width: 350px;
-}
-
-@media (max-width: 800px) {
-  :root{
-    --sidebar-width: 250px;
-  }
-
-  .container{
-    position: absolute;
-    left: 10px;
-    top: 0;
-  }
+  --footer-height: 110px;
 }
