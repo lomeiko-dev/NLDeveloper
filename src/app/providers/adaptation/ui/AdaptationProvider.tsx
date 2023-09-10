@@ -16,6 +16,10 @@ export const AdaptationProvider: React.FC<IAdaptationProvider> = (props) => {
     }
 
     useEffect(() => {
+        resizeWindowHandle();
+    }, []);
+
+    useEffect(() => {
         window.addEventListener("resize", resizeWindowHandle);
 
         return () => {

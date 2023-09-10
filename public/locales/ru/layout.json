@@ -1,0 +1,10 @@
+{
+  "link_main": "Главная",
+  "link_blog": "Блог",
+  "link_project": "Проекты",
+
+  "language_ru": "язык: Русский",
+  "language_en": "язык: Английский",
+  "theme_dark": "тема: темная",
+  "theme_light": "тема: светлая"
+}

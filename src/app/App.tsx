@@ -10,6 +10,7 @@ import classNames from "classnames";
 export const App = () => {
     const {theme} = useTheme();
     const device = useAdaptation();
+    
     return (
         <div className={classNames("app", device, theme)}>
             <Layout className="container">

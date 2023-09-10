@@ -5,11 +5,14 @@ import {Link as ReactLink} from "react-router-dom";
 import {LinkProps} from "react-router-dom";
 import classNames from "classnames";
 import {enumSized, sized} from "../types";
+import {useTranslation} from "react-i18next";
 
 interface ILinkProps extends LinkProps{
     children?: React.ReactNode,
     className?: string,
     size?: enumSized,
+    tkey?: string,
+    tfile?: string,
 }
 
 export const Link: React.FC<ILinkProps> = React.memo((props) => {
@@ -17,12 +20,16 @@ export const Link: React.FC<ILinkProps> = React.memo((props) => {
         children,
         className,
         size = enumSized.SMALL,
+        tkey,
+        tfile,
         ...otherProps
     } = props;
+
+    const {t} = useTranslation(tfile);
 
     return (
         <ReactLink
             className={classNames(style.link, className, sized[size])}
-            {...otherProps}> {children} </ReactLink>
+            {...otherProps}> {tkey === undefined ? children : t(tkey)} </ReactLink>
     )
 });

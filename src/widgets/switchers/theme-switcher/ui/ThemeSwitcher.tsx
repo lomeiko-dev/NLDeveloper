@@ -4,6 +4,6 @@ import {useTheme} from "shared/lib/hooks/use-theme/useTheme";
 export const ThemeSwitcher = () => {
     const {theme, toggleTheme} = useTheme();
     return (
-        <Button onClick={toggleTheme} styled={buttonStyled.FILLED}>тема: {theme}</Button>
+        <Button tfile="layout" tkey={theme === "light" ? "theme_light" : "theme_dark"} onClick={toggleTheme} styled={buttonStyled.FILLED}/>
     )
 }
