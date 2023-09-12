@@ -5,6 +5,7 @@
   .container{
     position: absolute;
     left: 10px;
+    width: calc(100% - 10px);
     top: 0;
   }
 }

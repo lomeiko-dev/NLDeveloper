@@ -8,3 +8,45 @@
 .border{
   border-radius: 5px;
 }
+
+
+.broadcast{
+  position: relative;
+}
+
+.broadcast:after{
+  content: "";
+  position: absolute;
+
+  border-radius: 50%;
+  border: 3px solid #4E5AEA;
+
+  animation: broadcast 1s infinite ease-in-out;
+}
+
+@keyframes broadcast {
+  0% {
+    top: -10px;
+    left: -10px;
+
+    width: calc(100% + 10px + 10px);
+    height: calc(100% + 10px + 10px);
+  }
+  50% {
+    top: -15px;
+    left: -15px;
+
+    width: calc(100% + 10px + 20px);
+    height: calc(100% + 10px + 20px);
+    opacity: .5;
+  }
+  100% {
+    top: -20px;
+    left: -20px;
+
+    width: calc(100% + 10px + 30px);
+    height: calc(100% + 10px + 30px);
+    opacity: 0;
+  }
+}
+

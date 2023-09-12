@@ -9,7 +9,6 @@ import MainIcon from "shared/assets/img/nav-icon/main.svg";
 import BlogIcon from "shared/assets/img/nav-icon/blog.svg";
 import ProjectsIcon from "shared/assets/img/nav-icon/projects.svg";
 
-const TFILE: string = "layout";
 
 export const NavBar = React.memo(() => {
     return (
@@ -17,15 +16,15 @@ export const NavBar = React.memo(() => {
             <div className={style.bar}>
                 <div className={style.item}>
                     <MainIcon className={style.icon_link} width="30px"/>
-                    <Link tfile={TFILE} tkey="link_main" size={enumSized.MIDDLE} to={pathRoute.main}/>
+                    <Link tkey="link_main" size={enumSized.MIDDLE} to={pathRoute.main}/>
                 </div>
                 <div className={style.item}>
                     <BlogIcon className={style.icon_link} width="30px"/>
-                    <Link tfile={TFILE} tkey="link_blog" size={enumSized.MIDDLE} to={pathRoute.blog}/>
+                    <Link tkey="link_blog" size={enumSized.MIDDLE} to={pathRoute.blog}/>
                 </div>
                 <div className={style.item}>
                     <ProjectsIcon className={style.icon_link} width="30px"/>
-                    <Link tfile={TFILE} tkey="link_project" size={enumSized.MIDDLE} to={pathRoute.project}/>
+                    <Link tkey="link_project" size={enumSized.MIDDLE} to={pathRoute.project}/>
                 </div>
             </div>
         </div>

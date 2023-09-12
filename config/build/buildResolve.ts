@@ -8,7 +8,7 @@ export const buildResolve = (config: IBuildSlice):webpack.ResolveOptions => {
             page: config.page,
             widgets: config.widgets,
             features: config.features,
-            entity: config.entity,
+            entities: config.entities,
             shared: config.shared,
         },
         extensions: ['.tsx', '.ts', '.js'],

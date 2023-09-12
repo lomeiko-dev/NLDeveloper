@@ -9,6 +9,6 @@ export const TranslatorSwitcher = () => {
     }
 
     return (
-        <Button tfile="layout" tkey={i18n.language === "ru" ? "language_ru" : "language_en"} onClick={toggleLanguage} styled={buttonStyled.FILLED}/>
+        <Button tkey={i18n.language === "ru" ? "language_ru" : "language_en"} onClick={toggleLanguage} styled={buttonStyled.FILLED}/>
     );
 };

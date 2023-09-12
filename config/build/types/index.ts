@@ -19,7 +19,7 @@ export interface IBuildSlice {
     page: string,
     widgets: string,
     features: string,
-    entity: string,
+    entities: string,
     shared: string,
 }
 

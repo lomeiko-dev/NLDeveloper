@@ -5,15 +5,19 @@ import {AdaptationProvider} from "app/providers/adaptation";
 import {BrowserRouter} from "react-router-dom";
 import {ThemeProvider} from "app/providers/theme";
 
-import "./shared/config/i18n/i18n";
+import "shared/config/i18n/i18n";
+import {StoreProvider} from "app/providers/store";
+import {use} from "i18next";
 
 const root = createRoot(document.getElementById("root"));
 root.render(
     <AdaptationProvider>
         <BrowserRouter>
-            <ThemeProvider>
-                <App />
-            </ThemeProvider>
+            <StoreProvider>
+                <ThemeProvider>
+                    <App />
+                </ThemeProvider>
+            </StoreProvider>
         </BrowserRouter>
     </AdaptationProvider>
 );

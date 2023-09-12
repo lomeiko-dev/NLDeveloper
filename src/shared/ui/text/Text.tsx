@@ -1,4 +1,4 @@
-import React from "react";
+import React, {CSSProperties} from "react";
 import style from "./Text.module.scss";
 import classNames from "classnames";
 import {enumSized, sized} from "../types";
@@ -11,6 +11,7 @@ export enum textStyled {
 interface ITextProps {
     children: React.ReactNode,
     className?: string,
+    styles?: CSSProperties
     styled?: textStyled,
     size?: enumSized,
     tkey?: string,
@@ -20,6 +21,7 @@ interface ITextProps {
 export const Text: React.FC<ITextProps> = React.memo((props) => {
     const {
         children,
+        styles,
         className,
         styled,
         size = enumSized.SMALL,
@@ -30,7 +32,7 @@ export const Text: React.FC<ITextProps> = React.memo((props) => {
     const {t} = useTranslation(tfile);
 
     return (
-        <div className={classNames(style.text, props.className, style[styled], sized[size])}>
+        <div style={styles} className={classNames(style.text, className, style[styled], sized[size])}>
             {tkey === undefined ? children : t(tkey)}
         </div>
     )

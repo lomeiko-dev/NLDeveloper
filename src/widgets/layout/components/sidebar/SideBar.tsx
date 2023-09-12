@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import style from "./SideBar.module.scss";
 
 import {Panel, panelGrid, panelStyled} from "shared/ui/panel/Panel";
@@ -14,8 +14,19 @@ import classNames from "classnames";
 import {useAdaptation} from "shared/lib/hooks/use-adaptation/useAdaptation";
 
 export const SideBar = React.memo(() => {
-    const [isOpen, setIsOpen] = useState(true);
     const device = useAdaptation();
+    const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+
+        if(device === "mobile")
+            setIsOpen(false);
+        else if (device === "desktop") {
+            setIsOpen(true);
+        }
+
+    }, [device]);
+
     const toggleBar = () => {
         setIsOpen(prevState => !prevState);
     }
@@ -27,7 +38,7 @@ export const SideBar = React.memo(() => {
                     onClick={toggleBar}
                     className={classNames(style.mobile_button)}
                     size={enumSized.SMALL}
-                    width="100px" height="100px"
+                    width="75px" height="75px"
                     styled={buttonStyled.CIRCLE}>
                     открыть/закрыть
                 </Button>

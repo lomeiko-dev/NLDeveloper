@@ -15,7 +15,7 @@ export default (env: IBildEnv) => {
         page: path.resolve(__dirname, "src", "page/"),
         widgets: path.resolve(__dirname, "src", "widgets/"),
         features: path.resolve(__dirname, "src", "features/"),
-        entity: path.resolve(__dirname, "src", "entity/"),
+        entities: path.resolve(__dirname, "src", "entities/"),
         shared: path.resolve(__dirname, "src", "shared/"),
     }
 
