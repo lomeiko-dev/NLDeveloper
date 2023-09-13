@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./Image.module.scss";
 import classNames from "classnames";
+import * as url from "url";
 
 export enum imageTypes {
     CIRCLE = "circle",
@@ -11,12 +12,13 @@ export enum imageAnimation {
     BROADCAST = "broadcast",
 }
 
-export interface IImageProps extends React.ImgHTMLAttributes<HTMLImageElement>{
+export interface IImageProps{
     className?: string,
     types?: imageTypes,
     animation?: imageAnimation,
     width?: string,
     height?: string,
+    src: string,
 }
 
 export const Image: React.FC<IImageProps> = React.memo((props) => {
@@ -24,18 +26,14 @@ export const Image: React.FC<IImageProps> = React.memo((props) => {
         className,
         types = imageTypes.BORDER,
         animation,
-        width = "50px",
-        height = "50px",
-        ...otherProps
+        width,
+        height,
+        src
     } = props
 
     return (
-        <div className={style[animation]}>
             <div
-                className={classNames(style.img, className, style[types])}
-                style={{width: width, height: height}}>
-                <img width={width} {...otherProps}/>
-            </div>
-        </div>
+                className={classNames(style.img, className, style[types], style[animation])}
+                style={{backgroundImage: `url(${src})`, width: width, height: height}}/>
     )
 });

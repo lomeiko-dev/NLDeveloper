@@ -3,3 +3,12 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.avatar{
+  width: var(--width-avatar-profile-data);
+  height: var(--width-avatar-profile-data);
+}
+
+.profile{
+  margin-bottom: 10px;
+}

@@ -9,34 +9,37 @@ import {useAppSelector} from "shared/lib/hooks/use-app-selector/useAppSelector";
 import {isloadingSelector, profileSelector} from "entities/profile";
 
 import loader from "shared/assets/gif/loaders/loader.gif";
+import classNames from "classnames";
 
-interface IProfileProps extends Omit<IImageProps, "types" | "className" | "children">{
-    color?: string
+interface IProfileProps extends Pick<IImageProps, "types" | "animation">{
+    className?: string,
+    classNameImgWrapper?: string
+    classNameImg?: string
 }
 
 export const Profile: React.FC<IProfileProps> = React.memo((props) => {
     const {
-        animation,
-        width = "200px",
-        height = "200px",
-        color,
-        ...otherProps
+        className,
+        classNameImgWrapper,
+        classNameImg,
+        types = imageTypes.CIRCLE,
+        animation
     } = props
 
     const profile = useAppSelector(profileSelector);
     const isLoading = useAppSelector(isloadingSelector);
 
     return (
-        <div className={style.profile}>
-            <div style={{border: `2px solid ${color}`}} className={style.avatar}>
+        <div className={classNames(style.profile, className)}>
+            <div className={classNameImgWrapper}>
                 <Image
-                    types={imageTypes.CIRCLE}
-                    width={width} height={height}
+                    className={classNameImg}
+                    types={types}
                     animation={animation}
                     src={isLoading ? loader : profile && profile.avatar}/>
             </div>
 
-            <Text styles={{color: color}} size={enumSized.LARGE}>{profile && profile.name}</Text>
+            <Text size={enumSized.LARGE}>{profile && profile.name}</Text>
         </div>
     )
 });

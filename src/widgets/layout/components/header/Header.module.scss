@@ -5,3 +5,18 @@
   background: var(--board-color);
   height: var(--header-height);
 }
+
+.avatar{
+  width: 200px;
+  height: 200px;
+}
+
+.profile{
+  color: #fff;
+}
+
+.border{
+  border: 2px solid #fff;
+  border-radius: 50%;
+  padding: 7px;
+}

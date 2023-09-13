@@ -1,5 +1,5 @@
-import React, {memo, useEffect, useState} from "react";
-import {storeKey} from "app/providers/store/config/types";
+import React, {useEffect} from "react";
+import {storeKey} from "app/providers/store";
 import {Reducer} from "@reduxjs/toolkit";
 import {reducerManager} from "app/providers/store";
 import {useAppDispatch} from "shared/lib/hooks/use-app-dispatch/useAppDispatch";

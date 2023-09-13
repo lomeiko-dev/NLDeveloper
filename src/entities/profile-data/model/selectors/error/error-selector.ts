@@ -1,3 +1,3 @@
-import {IStore} from "app/providers/store/config/types";
+import {IStore} from "app/providers/store";
 
 export const errorSelector = (state: IStore) => state.profileDataReducer?.error;

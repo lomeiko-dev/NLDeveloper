@@ -8,7 +8,10 @@ import {Profile} from "entities/profile";
 export const Header = React.memo(() => {
     return (
         <Panel grid={panelGrid.COLUMN} className={classNames(style.header)}>
-            <Profile color="#fff"/>
+            <Profile
+                classNameImg={style.avatar}
+                className={style.profile}
+                classNameImgWrapper={style.border}/>
         </Panel>
     )
 });

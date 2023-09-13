@@ -6,7 +6,7 @@ interface IAdaptationProvider {
     children: React.ReactNode,
 }
 export const AdaptationProvider: React.FC<IAdaptationProvider> = (props) => {
-    const [device, setDevice] = useState<typeAdaptationContext>("desktop");
+    const [device, setDevice] = useState<typeAdaptationContext>("mobile");
 
     const resizeWindowHandle = () => {
         if(window.innerWidth <= MIN_WIDTH_APP)

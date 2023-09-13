@@ -6,7 +6,7 @@ export function createReducerManager(initialReducers: ReducersMapObject<IStore>)
 
     let combinedReducer = combineReducers(reducers)
 
-    let keysToRemove: storeKey[] = []
+    let keysToRemove: storeKey[] = [];
 
     return {
         getReducerMap: () => reducers,
