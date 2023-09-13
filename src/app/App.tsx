@@ -3,12 +3,12 @@ import {Routes} from "./providers/router";
 import {Layout} from "widgets/layout";
 
 import {useTheme} from "shared/lib/hooks/use-theme/useTheme";
-import {useAdaptation} from "shared/lib/hooks/use-adaptation/useAdaptation";
-
-import classNames from "classnames";
 import {useAppDispatch} from "../shared/lib/hooks/use-app-dispatch/useAppDispatch";
+import {useAdaptation} from "shared/lib/hooks/use-adaptation/useAdaptation";
 import {useEffect} from "react";
+
 import {getProfileThunk} from "entities/profile";
+import classNames from "classnames";
 
 export const App = () => {
     const {theme} = useTheme();

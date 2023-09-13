@@ -9,7 +9,7 @@ import "shared/config/i18n/i18n";
 import {StoreProvider} from "app/providers/store";
 import {use} from "i18next";
 
-const root = createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root") || new DocumentFragment);
 root.render(
     <AdaptationProvider>
         <BrowserRouter>

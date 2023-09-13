@@ -33,7 +33,7 @@ export const Image: React.FC<IImageProps> = React.memo((props) => {
 
     return (
             <div
-                className={classNames(style.img, className, style[types], style[animation])}
+                className={classNames(style.img, className, style[types], animation && style[animation])}
                 style={{backgroundImage: `url(${src})`, width: width, height: height}}/>
     )
 });

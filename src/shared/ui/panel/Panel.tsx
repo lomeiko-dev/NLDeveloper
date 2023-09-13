@@ -34,7 +34,7 @@ export const Panel: React.FC<IPanelProps> = React.memo((props) => {
     } = props;
 
     return (
-        <div className={classNames(style.panel, className, style[background], style[grid], style[styled])}>
+        <div className={classNames(style.panel, className, style[background], style[grid], styled && style[styled])}>
             {children}
         </div>
     )
