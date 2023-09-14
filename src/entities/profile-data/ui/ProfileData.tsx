@@ -12,6 +12,8 @@ import {getProfileDataThunk} from "../model/services/get-profile-data-thunk";
 import {profileDataSelector} from "../model/selectors/profile-data/profile-data-selector";
 import {errorSelector} from "../model/selectors/error/error-selector";
 
+const TFILE: string = "profile_data";
+
 export const ProfileData = React.memo(() => {
     const dispatch = useAppDispatch();
     const profileData = useAppSelector(profileDataSelector);
@@ -27,11 +29,20 @@ export const ProfileData = React.memo(() => {
             <div className={style.data}>
                 {profileData !== undefined ? (
                     <>
-                        <Text>Возраст: {profileData.age}</Text>
+                        <div className={style.block}>
+                            <Text tfile={TFILE} tkey="age"/>
+                            <Text>{profileData.age}</Text>
+                        </div>
 
-                        <Text>Образование: {profileData.education}</Text>
+                        <div className={style.block}>
+                            <Text tfile={TFILE} tkey="education"/>
+                            <Text>{profileData.education}</Text>
+                        </div>
 
-                        <Text>Позиция: {profileData.position}</Text>
+                        <div className={style.block}>
+                            <Text tfile={TFILE} tkey="position"/>
+                            <Text>{profileData.position}</Text>
+                        </div>
 
                         <Text className={style.bio_block}>{profileData.biography}</Text>
                     </>

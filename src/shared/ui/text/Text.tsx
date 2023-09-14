@@ -9,7 +9,7 @@ export enum textStyled {
 }
 
 interface ITextProps {
-    children: React.ReactNode,
+    children?: React.ReactNode,
     className?: string,
     styles?: CSSProperties
     styled?: textStyled,

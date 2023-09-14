@@ -18,7 +18,6 @@ export const SideBar = React.memo(() => {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-
         if(device === "mobile")
             setIsOpen(false);
         else if (device === "desktop") {
