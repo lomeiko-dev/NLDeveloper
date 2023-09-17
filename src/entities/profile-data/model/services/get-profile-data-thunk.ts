@@ -1,7 +1,7 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {setProfileData} from "../slice/profile-data-slice";
 import {IProfileData} from "../typs/profile-data-scheme";
-import {PROFILE_DATA} from "shared/api/consts";
+import {PROFILE_DATA} from "shared/api";
 import {IThunkExtra} from "app/providers/store";
 
 interface IGetProfileDataThunk {

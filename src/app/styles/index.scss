@@ -25,4 +25,16 @@ body{
   width: 100%;
   max-width: 1500px;
   padding: 20px 15px;
+  margin: 0 auto;
+}
+
+.container::-webkit-scrollbar {
+  width: 12px;
+}
+.container::-webkit-scrollbar-track {
+  background: transparent;
+}
+.container::-webkit-scrollbar-thumb {
+  background: var(--board-color);
+  border-radius: 20px;
 }

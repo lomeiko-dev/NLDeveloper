@@ -14,18 +14,22 @@ export const NavBar = React.memo(() => {
     return (
         <div className={style.bar_container}>
             <div className={style.bar}>
+
                 <div className={style.item}>
                     <MainIcon className={style.icon_link} width="30px"/>
                     <Link tkey="link_main" size={enumSized.MIDDLE} to={pathRoute.main}/>
                 </div>
+
                 <div className={style.item}>
                     <BlogIcon className={style.icon_link} width="30px"/>
                     <Link tkey="link_blog" size={enumSized.MIDDLE} to={pathRoute.blog}/>
                 </div>
+
                 <div className={style.item}>
                     <ProjectsIcon className={style.icon_link} width="30px"/>
                     <Link tkey="link_project" size={enumSized.MIDDLE} to={pathRoute.project}/>
                 </div>
+
             </div>
         </div>
     )

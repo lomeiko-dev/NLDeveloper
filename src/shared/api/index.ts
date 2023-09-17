@@ -1,3 +1,3 @@
 export {baseInstance} from "./instance";
 
-export {PROFILE} from  "./consts";
+export {PROFILE, PROFILE_DATA, BLOG} from  "./consts";

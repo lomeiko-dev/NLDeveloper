@@ -16,6 +16,7 @@ const TFILE: string = "profile_data";
 
 export const ProfileData = React.memo(() => {
     const dispatch = useAppDispatch();
+
     const profileData = useAppSelector(profileDataSelector);
     const error = useAppSelector(errorSelector);
 

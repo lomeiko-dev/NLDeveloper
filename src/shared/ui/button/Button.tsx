@@ -16,8 +16,6 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
     className?: string,
     size?: enumSized,
     styled?: buttonStyled,
-    width?: string,
-    height?: string,
     tkey?: string,
     tfile?: string,
 }
@@ -28,8 +26,6 @@ export const Button: React.FC<IButtonProps> = React.memo((props) => {
         className,
         size = enumSized.SMALL,
         styled = buttonStyled.NONE,
-        width,
-        height,
         tkey,
         tfile,
         ...otherProps
@@ -40,7 +36,6 @@ export const Button: React.FC<IButtonProps> = React.memo((props) => {
     return (
         <button
             className={classNames(style.button, className, sized[size], style[styled])}
-            style={{width: width, height: height}}
             {...otherProps}>
             {tkey === undefined ? children : t(tkey)}
         </button>

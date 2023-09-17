@@ -1,7 +1,11 @@
-.img{
-  background-size: 100%;
+.wrapper{
+  margin: 10px;
 }
-
+.img{
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 66.64%;
+}
 
 .circle{
   border-radius: 50%;
@@ -10,11 +14,16 @@
   border-radius: 5px;
 }
 
+.framing{
+  border: 2px solid #fff;
+  border-radius: 50%;
+  padding: 7px;
+}
+
 
 .broadcast{
   position: relative;
 }
-
 .broadcast:after{
   content: "";
   position: absolute;
@@ -24,7 +33,6 @@
 
   animation: broadcast 1s infinite ease-in-out;
 }
-
 @keyframes broadcast {
   0% {
     top: -10px;

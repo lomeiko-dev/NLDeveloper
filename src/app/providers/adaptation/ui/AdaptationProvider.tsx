@@ -6,9 +6,10 @@ interface IAdaptationProvider {
     children: React.ReactNode,
 }
 export const AdaptationProvider: React.FC<IAdaptationProvider> = (props) => {
-    const [device, setDevice] = useState<typeAdaptationContext>("mobile");
+    const [device, setDevice]
+        = useState<typeAdaptationContext>("mobile");
 
-    const resizeWindowHandle = () => {
+    const resizeWindowHandler = () => {
         if(window.innerWidth <= MIN_WIDTH_APP)
             setDevice("mobile");
         else
@@ -16,14 +17,14 @@ export const AdaptationProvider: React.FC<IAdaptationProvider> = (props) => {
     }
 
     useEffect(() => {
-        resizeWindowHandle();
+        resizeWindowHandler();
     }, []);
 
     useEffect(() => {
-        window.addEventListener("resize", resizeWindowHandle);
+        window.addEventListener("resize", resizeWindowHandler);
 
         return () => {
-            window.removeEventListener("resize", resizeWindowHandle);
+            window.removeEventListener("resize", resizeWindowHandler);
         }
     }, []);
 

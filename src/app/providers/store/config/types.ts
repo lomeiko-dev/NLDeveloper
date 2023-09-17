@@ -1,5 +1,7 @@
 import {IProfileScheme} from "entities/profile";
 import {IProfileDataScheme} from "entities/profile-data";
+import {IBlogScheme} from "entities/blog";
+
 import {AxiosInstance} from "axios";
 
 export interface IStore {
@@ -7,6 +9,7 @@ export interface IStore {
 
     // async reducers
     profileDataReducer?: IProfileDataScheme,
+    blogReducer?: IBlogScheme
 }
 
 export interface IThunkExtra {

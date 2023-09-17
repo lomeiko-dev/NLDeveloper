@@ -1,4 +1,5 @@
 import './styles/index.scss';
+
 import {Routes} from "./providers/router";
 import {Layout} from "widgets/layout";
 
@@ -8,6 +9,7 @@ import {useAdaptation} from "shared/lib/hooks/use-adaptation/useAdaptation";
 import {useEffect} from "react";
 
 import {getProfileThunk} from "entities/profile";
+
 import classNames from "classnames";
 
 export const App = () => {

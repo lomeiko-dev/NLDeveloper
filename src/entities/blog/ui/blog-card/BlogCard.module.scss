@@ -1,0 +1,25 @@
+.card{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  min-width: 400px;
+  margin-bottom: 60px;
+
+  .text_date{
+    color: #fff;
+  }
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  background: var(--board-color);
+}
+.sub_header{
+  text-align: center;
+  background: var(--ternary-bg-color);
+}
+.block{
+  margin: 30px 0;
+}

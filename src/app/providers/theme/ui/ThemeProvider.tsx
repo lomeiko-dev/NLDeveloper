@@ -7,10 +7,10 @@ interface IThemeProvider {
     children: React.ReactNode,
 }
 
-const defaultValue = localStorage.getItem(THEME_KEY) || enumTheme.LIGHT;
+const defaultValue = localStorage.getItem(THEME_KEY) as enumTheme || enumTheme.LIGHT;
 
 export const ThemeProvider: React.FC<IThemeProvider> = (props) => {
-    const [theme, setTheme] = useState<enumTheme>(defaultValue as enumTheme);
+    const [theme, setTheme] = useState<enumTheme>(defaultValue);
 
     return (
         <ThemeContext.Provider value={{theme, setTheme}}>
