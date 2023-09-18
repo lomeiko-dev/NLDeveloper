@@ -32,7 +32,7 @@ export const Text: React.FC<ITextProps> = React.memo((props) => {
     const {t} = useTranslation(tfile);
 
     return (
-        <div style={styles} className={classNames(style.text, className, styled && style[styled], sized[size])}>
+        <div style={styles} className={classNames(style.text, styled && style[styled], sized[size], className)}>
             {tkey === undefined ? children : t(tkey)}
         </div>
     )

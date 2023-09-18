@@ -4,6 +4,7 @@ import {uploadBlogsThunk} from "../services/upload-blogs-thunk";
 
 const initialState: IBlogScheme = {
     blogs: [],
+    totalCount: 0,
     isLoading: true,
     error: undefined,
 }
@@ -12,8 +13,9 @@ const blogSlice = createSlice({
     name: "blog",
     initialState: initialState,
     reducers: {
-        uploadBlogs: (state, action: PayloadAction<IBlog[]>) => {
-            state.blogs = [...state.blogs, ...action.payload];
+        uploadBlogs: (state, action: PayloadAction<{blogs: IBlog[], totalCount: number}>) => {
+            state.blogs = [...state.blogs, ...action.payload.blogs];
+            state.totalCount = action.payload.totalCount;
         }
     },
     extraReducers: (builder) => {

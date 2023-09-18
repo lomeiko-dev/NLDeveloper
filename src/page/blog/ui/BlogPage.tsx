@@ -11,11 +11,9 @@ const BlogPage = () => {
     return (
         <ReducerLoader storeKey={"blogReducer"} reducer={blogReducer} save={false}>
             <div className={style.page}>
-
                 <div className={style.header}>
                     <Text size={enumSized.LARGE}>My blogs</Text>
                 </div>
-
                 <BlogList/>
             </div>
         </ReducerLoader>

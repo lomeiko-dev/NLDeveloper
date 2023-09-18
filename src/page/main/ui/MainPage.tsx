@@ -9,7 +9,7 @@ import {imageAnimation} from "shared/ui/image/Image";
 import {ProfileData} from "entities/profile-data";
 import {useAppSelector} from "shared/lib/hooks/use-app-selector/useAppSelector";
 
-const MainPage =  React.memo(() => {
+const MainPage = () => {
     const profile = useAppSelector(profileSelector);
     const isLoading = useAppSelector(isloadingSelector);
     const error = useAppSelector(errorSelector);
@@ -26,6 +26,6 @@ const MainPage =  React.memo(() => {
             </div>
         </ReducerLoader>
     )
-});
+};
 
 export default MainPage;

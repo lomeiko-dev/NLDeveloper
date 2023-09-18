@@ -1,4 +1,4 @@
-type typeBody = "text" | "image";
+export type typeBody = "text" | "image" | "code";
 export interface IBlogBody {
     type: typeBody,
     title: string,
@@ -16,6 +16,7 @@ export interface IBlog {
 
 export interface IBlogScheme {
     blogs: IBlog[],
+    totalCount: number
     isLoading: boolean,
     error?: string
 }

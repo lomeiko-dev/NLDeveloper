@@ -20,7 +20,10 @@ export const uploadBlogsThunk = createAsyncThunk<IBlog[], IUploadBlogsThunkProps
         try {
             const response = await thunkAPI.extra.apiInstance.get<IBlog[]>(BLOG + `?_limit=${limit}&_page=${page}`);
 
-            thunkAPI.dispatch(uploadBlogs(response.data));
+            thunkAPI.dispatch(uploadBlogs({
+                blogs: response.data,
+                totalCount: Number(response.headers["x-total-count"])
+            }));
 
             return response.data;
         }

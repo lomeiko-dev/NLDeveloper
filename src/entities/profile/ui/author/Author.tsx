@@ -11,16 +11,15 @@ import classNames from "classnames";
 interface IAuthorProps {
     data?: IProfile
     className?: string,
-    colorText?: string,
 }
 
-export const Author: React.FC<IAuthorProps> = ({data, className, colorText}) => {
+export const Author: React.FC<IAuthorProps> = ({data, className}) => {
     return (
         <div className={classNames(style.author, className)}>
             {data && (
                 <>
                     <Image className={style.avatar} types={imageTypes.CIRCLE} src={data.avatar}/>
-                    <Text styles={{color: colorText}} size={enumSized.SMALL}>{data.name}</Text>
+                    <Text size={enumSized.SMALL}>{data.name}</Text>
                 </>
             )}
         </div>
