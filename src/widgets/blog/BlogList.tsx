@@ -12,7 +12,7 @@ import {blogSelector,
 
 import {Image} from "shared/ui/image/Image";
 import {Text, textStyled} from "shared/ui/text/Text";
-import {BlogCard} from "../../blog-card/ui/BlogCard";
+import {BlogCard} from "./blog-card/ui/BlogCard";
 import loader from "shared/assets/gif/loaders/loader.gif";
 
 const CONTAINER = document.getElementsByClassName("container")[0];

@@ -3,3 +3,45 @@
   flex-direction: column;
   align-items: center;
 }
+.static_outline{
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+
+.animation_outline{
+  position: relative;
+  margin: 5px;
+}
+.animation_outline:after{
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid #4E5AEA;
+
+  animation: animation_outline 1s infinite ease-in-out;
+}
+@keyframes animation_outline {
+  0% {
+    top: -10px;
+    left: -10px;
+
+    width: calc(100% + 10px + 10px);
+    height: calc(100% + 10px + 10px);
+  }
+  50% {
+    top: -15px;
+    left: -15px;
+
+    width: calc(100% + 10px + 20px);
+    height: calc(100% + 10px + 20px);
+    opacity: .5;
+  }
+  100% {
+    top: -20px;
+    left: -20px;
+
+    width: calc(100% + 10px + 30px);
+    height: calc(100% + 10px + 30px);
+    opacity: 0;
+  }
+}

@@ -36,5 +36,4 @@ const blogSlice = createSlice({
 })
 
 export const blogReducer = blogSlice.reducer;
-
 export const {uploadBlogs} = blogSlice.actions;

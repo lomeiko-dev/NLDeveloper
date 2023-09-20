@@ -1,7 +1,8 @@
 import React, {ReactNode} from "react";
-import {IBlogBody} from "../../../../model/types/blog-scheme";
-import {BodyText} from "../../body-components/body-text/BodyText";
-import {BodyImage} from "../../body-components/body-image/BodyImage";
+import {IBlogBody} from "../../../model/types/blog-scheme";
+import {BodyText} from "./body-text/BodyText";
+import {BodyImage} from "./body-image/BodyImage";
+import {BodyCode} from "./body-code/BodyCode";
 
 export const GetBlockBody = (body: IBlogBody): ReactNode => {
     switch (body.type){
@@ -10,6 +11,6 @@ export const GetBlockBody = (body: IBlogBody): ReactNode => {
         case "image":
             return <BodyImage content={body.content}/>
         case "code":
-            return null;
+            return <BodyCode content={body.content}/>
     }
 }

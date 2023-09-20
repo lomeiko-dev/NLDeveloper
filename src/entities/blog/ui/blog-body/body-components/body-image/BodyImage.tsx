@@ -10,7 +10,7 @@ interface IBodyTextProps {
 export const BodyImage: React.FC<IBodyTextProps> = React.memo(({content}) => {
     return (
         <div>
-            <Image src={content} types={imageTypes.BORDER}/>
+            <Image src={content} types={imageTypes.BORDER} className={style.img}/>
         </div>
     );
 });

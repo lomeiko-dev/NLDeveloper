@@ -3,8 +3,12 @@
   flex-direction: column;
   justify-content: center;
 }
+.profile_wrapper{
+  justify-content: center;
+  border-radius: 5px;
+  padding: 10px;
+}
 
 .avatar{
   width: var(--width-avatar-profile-data);
-  height: var(--width-avatar-profile-data);
 }

@@ -1,37 +1,38 @@
 import React from "react";
 import style from "./Profile.module.scss";
 
-import {IImageProps, Image, imageTypes} from "shared/ui/image/Image";
+import {Image, imageTypes} from "shared/ui/image/Image";
 import {Text, textStyled} from "shared/ui/text/Text";
 import {enumSized} from "shared/ui/types";
 
-import {useAppSelector} from "shared/lib/hooks/use-app-selector/useAppSelector";
-import {errorSelector, IProfileScheme, isloadingSelector, profileSelector} from "entities/profile";
-
 import loader from "shared/assets/gif/loaders/loader.gif";
 import classNames from "classnames";
+import {IProfile} from "../../model/types/profile-scheme";
 
-interface IProfileProps extends Pick<IImageProps, "types" | "animation" | "styled">{
+export enum avatarStyled {
+    NONE = "none",
+    STATICOUTLINE = "static_outline",
+    ANIMATIONOUTLINE = "animation_outline"
+}
+
+interface IProfileProps {
     className?: string,
     classNameImg?: string,
-    profileScheme: IProfileScheme,
+    data?: IProfile,
+    isLoading: boolean,
+    error?: string,
+    styled?: avatarStyled,
 }
 
 export const Profile: React.FC<IProfileProps> = React.memo((props) => {
     const {
         className,
         classNameImg,
-        profileScheme,
-        types = imageTypes.CIRCLE,
-        styled,
-        animation
-    } = props
-
-    const {
-        profile,
+        data,
+        isLoading,
         error,
-        isLoading
-    } = profileScheme
+        styled = avatarStyled.NONE,
+    } = props
 
     if(error !== undefined){
         return (
@@ -43,11 +44,13 @@ export const Profile: React.FC<IProfileProps> = React.memo((props) => {
 
     return (
         <div className={classNames(style.profile, className)}>
-            <Image className={classNameImg}
-                   types={types} styled={styled} animation={animation}
-                   src={isLoading ? loader : profile && profile.avatar}/>
+            <div className={style[styled]}>
+                <Image className={classNameImg}
+                       types={imageTypes.CIRCLE}
+                       src={isLoading ? loader : data && data.avatar}/>
+            </div>
 
-            <Text size={enumSized.LARGE}>{profile && profile.name}</Text>
+            <Text size={enumSized.LARGE}>{data && data.name}</Text>
         </div>
     )
 });

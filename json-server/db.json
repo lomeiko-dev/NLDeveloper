@@ -6,29 +6,9 @@
       "sub_title": "Что такое React и с чем его едят?",
       "body": [
         {
-          "type": "image",
-          "title": "",
-          "content": "https://treningi4you.com/upload/iblock/d87/js_react_shkola_programmirovaniya_khekslet.jpg"
-        },
-        {
           "type": "text",
-          "title": "Что такое React?",
-          "content": "React - фреймворк для фронтенд приложений. \nОснованя фишка данного фреймворка это размещение в одном jsx/tsx файле (расширение файла) разметку и логику javaScript или typeScript \nReact очень удобен своим гибким функционалом который позволит создать любой сложности приложение"
-        },
-        {
-          "type": "text",
-          "title": "Где стоит применять React?",
-          "content": "React можно применять в любых проектах, любой сложности. \nВ основном реакт используется в больших приложениях которые используют много-страничность и разную логику отправки данных на сервер, получения результата и обработка данных"
-        },
-        {
-          "type": "image",
-          "title": "",
-          "content": "https://i.ytimg.com/vi/svr2Nix2jE8/maxresdefault.jpg?9289889566"
-        },
-        {
-          "type": "text",
-          "title": "Что интересного есть в React?",
-          "content": "Как было сказано уже ранее React очень гибкий и в нём есть множество функций и решений для выполнения разных задач \n Самая главная из них это jsx - расширения реакт-файла которое позволяет в себе совместить HTML-разметку и js/ts код. React уходит от бонального использования объекта document внедряя свои решения для работы с dom деревом. \nЕще одно главное нововведение это хуки. У React есть множество хуков которые позволяют облегчить работу с dom-деревом или же какой либо логикой на сайте"
+          "title": "О React",
+          "content": "React - это фреймворк написанный для создания оптимизированных, веб приложений, реакт заменяет нативный javaScript польностью!"
         }
       ],
       "tags": "#Framework #React",
@@ -164,6 +144,11 @@
           "type": "text",
           "title": "Что такое Redux?",
           "content": "Redux - это важная часть любого приложения написанное на фреймворке будь то React, Vue, Angular и тд. \nRedux позволяет сделать внтуринний state, другими словами хранилище которые будет доступна из любой точки приложения, это хранилище нельзя изменть через код элемента или какими нибудь другими путями. Это хранилище сохраняется при обновлении какой либо компоненты, но не сохраняется при обновлении сайта, или его перезапуска. \nRedux нужен для обработки или отправки или недолгое хранение каких либо данных"
+        },
+        {
+          "type": "code",
+          "title": "Что такое Redux?",
+          "content": "import React, { useEffect, useState, useCallback } from 'react';\n\nimport api from './api';\nimport type { RESPONSE_DATA } from './api';\n\nimport './App.css';\n\nfunction App() {\n  const [data, setData] = useState<RESPONSE_DATA | null>(null);\n  const [page, setPage] = useState(1);\n  const [isLoading, setLoading] = useState(false);\n  const [error, setError] = useState<string | null>(null);\n\n  useEffect(() => {\n    const fetchData = async () => {\n      setLoading(true);\n      setError(null);\n\n      try {\n        const response = await api.get.data(page);\n        setData(response);\n      } catch (err) {\n        setError(\n          err instanceof Error ? err.message : 'Unknown Error: api.get.data'\n        );\n        setData(null);\n      } finally {\n        setLoading(false);\n      }\n    };\n\n    fetchData();\n  }, [page]);\n\n  return <div className='App'>...</div>;\n}\n\nexport default App;"
         },
         {
           "type": "text",

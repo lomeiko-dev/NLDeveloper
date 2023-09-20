@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {IBlog} from "../types/blog-scheme";
-import {IThunkExtra} from "app/providers/store";
+import {IThunk} from "app/providers/store";
 import {BLOG} from "shared/api";
 import {uploadBlogs} from "../slice/blog-slice";
 
@@ -9,13 +9,7 @@ interface IUploadBlogsThunkProps {
     page: number,
 }
 
-interface IUploadBlogsThunk {
-    extra: IThunkExtra,
-    dispatch: AppDispatch,
-    rejectValue: string,
-}
-
-export const uploadBlogsThunk = createAsyncThunk<IBlog[], IUploadBlogsThunkProps, IUploadBlogsThunk>("blog/uploadBlogs",
+export const uploadBlogsThunk = createAsyncThunk<IBlog[], IUploadBlogsThunkProps, IThunk>("blog/uploadBlogs",
     async ({limit, page}, thunkAPI) => {
         try {
             const response = await thunkAPI.extra.apiInstance.get<IBlog[]>(BLOG + `?_limit=${limit}&_page=${page}`);

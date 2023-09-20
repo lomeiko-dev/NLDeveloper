@@ -1,0 +1,46 @@
+.code{
+  margin: 10px;
+}
+.header{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  background: var(--board-color);
+  height: 40px;
+}
+.header_icon{
+  display: flex;
+  div{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 3px;
+  }
+}
+
+.numbering{
+  text-align: center;
+  padding: 0 5px;
+  margin: 0 5px;
+  background: var(--board-color);
+  color: #fff;
+}
+.body{
+  background: var(--ternary-bg-color);
+  color: var(--code-color);
+  padding: 10px;
+  max-height: 700px;
+  overflow: auto;
+}
+
+.body::-webkit-scrollbar {
+  width: 12px;
+}
+.body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.body::-webkit-scrollbar-thumb {
+  background: var(--board-color);
+  border-radius: 20px;
+}

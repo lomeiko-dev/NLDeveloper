@@ -12,7 +12,13 @@ export interface IStore {
     blogReducer?: IBlogScheme
 }
 
-export interface IThunkExtra {
+export interface IThunk {
+    extra: IThunkExtra,
+    dispatch: AppDispatch,
+    rejectValue: string,
+}
+
+interface IThunkExtra {
     apiInstance: AxiosInstance,
 }
 
