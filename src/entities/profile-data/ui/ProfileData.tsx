@@ -5,6 +5,7 @@ import {Text, textStyled} from "shared/ui/text/Text";
 import loader from "shared/assets/gif/loaders/loader.gif";
 import classNames from "classnames";
 import {IProfileData} from "../model/typs/profile-data-scheme";
+import {enumSized} from "../../../shared/ui/types";
 
 const TFILE: string = "profile_data";
 
@@ -32,20 +33,17 @@ export const ProfileData: React.FC<IProfileDataProps> = React.memo((props) => {
     return (
         <div className={classNames(style.data, className)}>
             <div className={style.block}>
-                <Text tfile={TFILE} tkey="age"/>
+                <Text size={enumSized.MIDDLE} tfile={TFILE} tkey="age"/>
                 <Text>{data && data.age}</Text>
             </div>
-
             <div className={style.block}>
-                <Text tfile={TFILE} tkey="education"/>
+                <Text size={enumSized.MIDDLE} tfile={TFILE} tkey="education"/>
                 <Text>{data && data.education}</Text>
             </div>
-
             <div className={style.block}>
-                <Text tfile={TFILE} tkey="position"/>
+                <Text size={enumSized.MIDDLE} tfile={TFILE} tkey="position"/>
                 <Text>{data && data.position}</Text>
             </div>
-
             <Text className={style.bio_block}>{data && data.biography}</Text>
             {content}
         </div>
