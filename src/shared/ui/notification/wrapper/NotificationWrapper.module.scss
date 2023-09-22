@@ -1,0 +1,33 @@
+.wrapper{
+  position: absolute;
+  z-index: 10000;
+
+  animation-duration: 7s;
+  animation-name: closed_anim;
+}
+
+@keyframes closed_anim {
+  50%{
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.top_left{
+  top: 0;
+  left: 0;
+}
+.top_right{
+  top: 0;
+  right: 0;
+}
+.bottom_left{
+  bottom: 0;
+  left: 0;
+}
+.bottom_right{
+  bottom: 0;
+  right: 0;
+}

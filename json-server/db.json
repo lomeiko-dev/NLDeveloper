@@ -1,4 +1,42 @@
 {
+  "auth": [
+    {
+      "id": 1,
+      "idDevice": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 YaBrowser/23.7.5.734 Yowser/2.5 Safari/537.36-Win32",
+      "isBlocked": true,
+      "reason": "Оскорбления родных "
+    },
+    {
+      "id": 2,
+      "idDevice": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36-Win32",
+      "isBlocked": false
+    },
+    {
+      "id": 3,
+      "idDevice": "Mozilla/5.0 (Linux; Android 11.0; Surface Duo) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36-Win32",
+      "isBlocked": false
+    },
+    {
+      "id": 4,
+      "idDevice": "Mozilla/5.0 (Linux; Android 9.0; SAMSUNG SM-F900U Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36-Win32",
+      "isBlocked": false
+    },
+    {
+      "id": 5,
+      "idDevice": "вып",
+      "isBlocked": false
+    },
+    {
+      "id": 6,
+      "idDevice": "вып",
+      "isBlocked": false
+    },
+    {
+      "id": 7,
+      "idDevice": "Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36-Win32",
+      "isBlocked": false
+    }
+  ],
   "blogs": [
     {
       "id": 0,

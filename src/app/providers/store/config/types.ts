@@ -3,8 +3,10 @@ import {IProfileDataScheme} from "entities/profile-data";
 import {IBlogScheme} from "entities/blog";
 
 import {AxiosInstance} from "axios";
+import {IAuthScheme} from "entities/auth/model/types/auth-scheme";
 
 export interface IStore {
+    authReducer: IAuthScheme,
     profileReducer: IProfileScheme,
 
     // async reducers

@@ -2,9 +2,12 @@ import {CombinedState, configureStore, Reducer, ReducersMapObject} from "@reduxj
 import {IStore} from "./types";
 import {createReducerManager} from "../lib/utils/reduce-manager";
 import {profileReducer} from "entities/profile";
+import {authReducer} from "entities/auth/model/slice/auth-slice";
+
 import {baseInstance} from "shared/api";
 
 const rootReducers: ReducersMapObject<IStore> = {
+    authReducer: authReducer,
     profileReducer: profileReducer
 };
 

@@ -5,24 +5,21 @@ import {AdaptationProvider} from "app/providers/adaptation";
 import {BrowserRouter} from "react-router-dom";
 import {ThemeProvider} from "app/providers/theme";
 import {StoreProvider} from "app/providers/store";
-import {RedirectProvider} from "app/providers/redirect";
+import {AuthenticateProvider} from "app/providers/authenticate";
 
 import "shared/config/i18n/i18n";
 
-
-import {pathRoute} from "shared/config/route";
-
 const root = createRoot(document.getElementById("root") || new DocumentFragment);
 root.render(
-        <AdaptationProvider>
-            <BrowserRouter>
-                <RedirectProvider to={pathRoute.main}>
-                    <StoreProvider>
-                        <ThemeProvider>
-                            <App />
-                        </ThemeProvider>
-                    </StoreProvider>
-                </RedirectProvider>
-            </BrowserRouter>
-        </AdaptationProvider>
+    <AdaptationProvider>
+        <BrowserRouter>
+            <StoreProvider>
+                <AuthenticateProvider>
+                    <ThemeProvider>
+                        <App />
+                    </ThemeProvider>
+                </AuthenticateProvider>
+            </StoreProvider>
+        </BrowserRouter>
+    </AdaptationProvider>
 );

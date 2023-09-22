@@ -3,6 +3,8 @@ enum path{
     "MAIN" = "main",
     "BLOG" = "blog",
     "PROJECT" = "project",
+    "NOTFOUND" = "notFound",
+    "NOTAUTH" = "notAuth",
 }
 
 export const pathRoute: Record<path, string> = {
@@ -10,5 +12,6 @@ export const pathRoute: Record<path, string> = {
     [path.MAIN]: "/main",
     [path.BLOG]: "/blog",
     [path.PROJECT]: "/project",
-
+    [path.NOTFOUND]: "/not-found",
+    [path.NOTAUTH]: "/not-auth",
 }
