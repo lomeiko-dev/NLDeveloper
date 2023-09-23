@@ -10,3 +10,4 @@ export { errorSelector } from "./model/selectors/error/error-selector";
 export { BlogBody } from "./ui/blog-body/BlogBody";
 export { BlogTitle } from "./ui/blog-title/BlogTitle";
 export { BlogTag } from "./ui/blog-tag/BlogTag";
+export { BlogFooter } from "./ui/blog-footer/BlogFooter";

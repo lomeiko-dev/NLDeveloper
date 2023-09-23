@@ -12,6 +12,8 @@ export interface IBlog {
     body: IBlogBody[],
     tags: string,
     createdAt: string,
+    likes: number,
+    comments: number,
 }
 
 export interface IBlogScheme {

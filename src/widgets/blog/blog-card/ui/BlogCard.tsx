@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./BlogCard.module.scss";
 
-import {BlogBody, BlogTag, BlogTitle, IBlog} from "entities/blog";
+import {BlogBody, BlogFooter, BlogTag, BlogTitle, IBlog} from "entities/blog";
 
 import {Text} from "shared/ui/text/Text";
 import {Panel, panelStyled} from "shared/ui/panel/Panel";
@@ -25,9 +25,11 @@ export const BlogCard: React.FC<IBlogCardProps> = React.memo(({blog}) => {
                 <Author className={style.text_header} isLoading={isLoading} error={error} data={profile}/>
                 <Text className={style.text_header} size={enumSized.SMALL}>{blog.createdAt}</Text>
             </div>
+
             <BlogTitle title={blog.title} sub_title={blog.sub_title}/>
             <BlogBody body={blog.body}/>
             <BlogTag tags={blog.tags}/>
+            <BlogFooter likes={50} comments={7}/>
         </Panel>
     );
 });
