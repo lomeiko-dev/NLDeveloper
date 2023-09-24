@@ -1,8 +1,6 @@
 import React, {useEffect} from 'react';
-import {useAppSelector} from "shared/lib/hooks/use-app-selector/useAppSelector";
-import {authSelector} from "entities/auth";
-import {useLocation, useNavigate} from "react-router-dom";
-import {Navigate} from "react-router-dom";
+import {useAuth} from "entities/auth";
+import {useNavigate} from "react-router-dom";
 import {pathRoute} from "shared/config/route";
 
 interface IRequireAuthProps {
@@ -10,12 +8,11 @@ interface IRequireAuthProps {
 }
 
 export const RequireAuth:React.FC<IRequireAuthProps> = ({children}) => {
-    const authData = useAppSelector(authSelector);
-    const location = useLocation();
+    const {isAuth} = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(authData === undefined){
+        if(isAuth === undefined){
             navigate(pathRoute.notAuth);
         }
     }, []);
