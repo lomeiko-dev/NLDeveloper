@@ -34,7 +34,7 @@ export const Author: React.FC<IAuthorProps> = React.memo((props) => {
             {data && (
                 <>
                     <Image className={style.avatar} types={imageTypes.CIRCLE} src={isLoading ? loader : data.avatar}/>
-                    <Text size={enumSized.SMALL}>{data.name}</Text>
+                    <Text size={enumSized.MIDDLE}>{data.name}</Text>
                 </>
             )}
         </div>

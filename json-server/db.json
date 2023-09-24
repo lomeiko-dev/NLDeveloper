@@ -3,7 +3,7 @@
     {
       "id": 1,
       "idDevice": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 YaBrowser/23.7.2.766 Yowser/2.5 Safari/537.36-Win32",
-      "isBlocked": false
+      "isBlocked": true
     },
     {
       "id": 2,
@@ -180,18 +180,8 @@
   "Likes": [
     {
       "id_user": 2,
-      "id_product": 2,
-      "id": 9
-    },
-    {
-      "id_user": 1,
-      "id_product": 1,
-      "id": 12
-    },
-    {
-      "id_user": 2,
       "id_product": 0,
-      "id": 13
+      "id": 2
     }
   ],
   "profile": {
