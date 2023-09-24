@@ -2,12 +2,9 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {IThunk} from "app/providers/store";
 import {LIKE} from "shared/api/consts";
 import {ILike} from "../types/like";
+import {ILikeThunkProps} from "../types/like-thunk-props";
 
-interface IToggleLikeThunkProps {
-    id_product: string,
-    id_user: string,
-}
-export const toggleLikeThunk = createAsyncThunk<void, IToggleLikeThunkProps, IThunk>("like/toggleLike",
+export const toggleLikeThunk = createAsyncThunk<void, ILikeThunkProps, IThunk>("like/toggleLike",
     async ({id_product, id_user}, thunkAPI) => {
         try {
             const like =

@@ -3,7 +3,7 @@
     {
       "id": 1,
       "idDevice": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 YaBrowser/23.7.2.766 Yowser/2.5 Safari/537.36-Win32",
-      "isBlocked": true
+      "isBlocked": false
     },
     {
       "id": 2,
@@ -12,20 +12,6 @@
     }
   ],
   "blogs": [
-    {
-      "id": 0,
-      "title": "Framework REACT",
-      "sub_title": "Что такое React и с чем его едят?",
-      "body": [
-        {
-          "type": "text",
-          "title": "О React",
-          "content": "React - это фреймворк написанный для создания оптимизированных, веб приложений, реакт заменяет нативный javaScript польностью!"
-        }
-      ],
-      "tags": "#Framework #React",
-      "createdAt": "17.09.2023 13:46"
-    },
     {
       "id": 1,
       "title": "REDUX in React",
@@ -179,9 +165,9 @@
   ],
   "Likes": [
     {
-      "id_user": 2,
-      "id_product": 0,
-      "id": 2
+      "id_user": 1,
+      "id_product": 1,
+      "id": 1
     }
   ],
   "profile": {

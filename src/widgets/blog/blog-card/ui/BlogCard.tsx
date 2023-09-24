@@ -10,15 +10,12 @@ import {Author, errorSelector, isloadingSelector, profileSelector} from "entitie
 import {enumSized} from "shared/ui/types";
 
 import {useAppSelector} from "shared/lib/hooks/use-app-selector/useAppSelector";
-import {authSelector} from "entities/auth";
 
 interface IBlogCardProps {
     blog: IBlog
 }
 
 export const BlogCard: React.FC<IBlogCardProps> = React.memo(({blog}) => {
-    const authData = useAppSelector(authSelector);
-
     const profile = useAppSelector(profileSelector);
     const isLoading = useAppSelector(isloadingSelector);
     const error = useAppSelector(errorSelector);
@@ -35,7 +32,7 @@ export const BlogCard: React.FC<IBlogCardProps> = React.memo(({blog}) => {
             <BlogTag tags={blog.tags}/>
 
             <div className={style.footer}>
-                <Like id_product={blog.id} id_user={authData?.id || "-1"}/>
+                <Like id_product={blog.id}/>
             </div>
         </Panel>
     );

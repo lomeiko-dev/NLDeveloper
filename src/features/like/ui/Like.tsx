@@ -14,10 +14,13 @@ import {useAuth} from "entities/auth";
 import classNames from "classnames";
 import {unwrapResult} from "@reduxjs/toolkit";
 
-import {ILikeProps} from "../module/types/like-thunk-props";
 import {getNotificationPunishments} from "app/providers/authenticate";
 
-export const Like: React.FC<ILikeProps> = React.memo(({id_user, id_product}) => {
+interface ILikeProps {
+    id_product: string,
+}
+
+export const Like: React.FC<ILikeProps> = React.memo(({id_product}) => {
     const dispatch = useAppDispatch();
     const {authData} = useAuth();
 
@@ -30,7 +33,7 @@ export const Like: React.FC<ILikeProps> = React.memo(({id_user, id_product}) => 
     const [notifications, setNotifications] = useState<React.ReactNode[]>([]);
 
     useEffect(() => {
-        dispatch(getCountLikeThunk({id_user, id_product}))
+        dispatch(getCountLikeThunk({id_user: authData?.id || "-1", id_product}))
             .then(unwrapResult).then(res => setLikes(res))
             .finally(() => setFetching(false));
     }, [fetching]);
@@ -44,7 +47,7 @@ export const Like: React.FC<ILikeProps> = React.memo(({id_user, id_product}) => 
             return;
         }
 
-        dispatch(toggleLikeThunk({id_user: id_user, id_product:id_product}));
+        dispatch(toggleLikeThunk({id_user: authData?.id || "-1", id_product:id_product}));
         setFetching(true);
     }
 
