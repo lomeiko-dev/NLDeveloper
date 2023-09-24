@@ -11,7 +11,7 @@ export interface IStore {
 
     // async reducers
     profileDataReducer?: IProfileDataScheme,
-    blogReducer?: IBlogScheme
+    blogReducer?: IBlogScheme,
 }
 
 export interface IThunk {

@@ -11,9 +11,7 @@ export interface IBlog {
     sub_title: string,
     body: IBlogBody[],
     tags: string,
-    createdAt: string,
-    likes: number,
-    comments: number,
+    createdAt: string
 }
 
 export interface IBlogScheme {

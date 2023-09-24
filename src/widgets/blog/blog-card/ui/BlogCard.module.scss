@@ -5,14 +5,23 @@
   max-width: 800px;
   min-width: 200px;
   margin-bottom: 60px;
-
-  .text_header{
-    color: #fff;
-  }
 }
 
 .header{
   display: flex;
   justify-content: space-between;
   background: var(--board-color);
+
+  .text_header{
+    color: #fff;
+  }
+}
+
+.footer{
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--board-color);
+  .text_footer{
+    color: #fff;
+  }
 }

@@ -5,7 +5,7 @@ import {IBildEnv, IBuildPaths, IBuildSlice} from "./config/build/types";
 export default (env: IBildEnv) => {
 
     const paths: IBuildPaths = {
-        htmlPath: path.resolve(__dirname, 'public', 'index.tsx.html'),
+        htmlPath: path.resolve(__dirname, 'public', 'index.html'),
         entry: path.resolve(__dirname, 'src', 'main.tsx'),
         buildPath: path.resolve(__dirname, 'build')
     }
