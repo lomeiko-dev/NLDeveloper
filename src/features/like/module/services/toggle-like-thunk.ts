@@ -26,5 +26,6 @@ export const toggleLikeThunk = createAsyncThunk<void, IToggleLikeThunkProps, ITh
             }
         }
         catch (error){
+            console.error((error as Error).message);
         }
     });

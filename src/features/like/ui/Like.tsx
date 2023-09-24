@@ -23,6 +23,7 @@ export const Like: React.FC<ILikeProps> = React.memo(({id_user, id_product}) => 
 
     const [likes, setLikes] =
         useState<IGetCountLikeThunkReturned>({count: 0, isLicked: false});
+
     const [fetching, setFetching] = useState(false);
 
     const [isOpen, setOpen] = useState(true);

@@ -2,17 +2,14 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {IThunk} from "app/providers/store";
 import {LIKE} from "shared/api/consts";
 import {ILike} from "../types/like";
+import {ILikeProps} from "../types/like-thunk-props";
 
-interface IGetCountLikeThunkProps {
-    id_product: string,
-    id_user: string
-}
 export interface IGetCountLikeThunkReturned {
     count: number,
     isLicked: boolean,
 }
 
-export const getCountLikeThunk = createAsyncThunk<IGetCountLikeThunkReturned, IGetCountLikeThunkProps, IThunk>("like/getCountLike",
+export const getCountLikeThunk = createAsyncThunk<IGetCountLikeThunkReturned, ILikeProps, IThunk>("like/getCountLike",
     async ({id_user, id_product}, thunkAPI) => {
         try {
             const count =
