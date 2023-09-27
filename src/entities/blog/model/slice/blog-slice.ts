@@ -16,7 +16,7 @@ const blogSlice = createSlice({
         uploadBlogs: (state, action: PayloadAction<{blogs: IBlog[], totalCount: number}>) => {
             state.blogs = [...state.blogs, ...action.payload.blogs];
             state.totalCount = action.payload.totalCount;
-        }
+        },
     },
     extraReducers: (builder) => {
         builder

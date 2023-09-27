@@ -6,20 +6,23 @@ import {BrowserRouter} from "react-router-dom";
 import {ThemeProvider} from "app/providers/theme";
 import {StoreProvider} from "app/providers/store";
 import {AuthenticateProvider} from "app/providers/authenticate";
+import {NotificationProvider} from "./app/providers/notification/ui/NotificationProvider";
 
 import "shared/config/i18n/i18n";
 
 const root = createRoot(document.getElementById("root") || new DocumentFragment);
 root.render(
-    <AdaptationProvider>
-        <BrowserRouter>
-            <StoreProvider>
-                <AuthenticateProvider>
-                    <ThemeProvider>
-                        <App />
-                    </ThemeProvider>
-                </AuthenticateProvider>
-            </StoreProvider>
-        </BrowserRouter>
-    </AdaptationProvider>
+    <BrowserRouter>
+        <AdaptationProvider>
+            <ThemeProvider>
+                <StoreProvider>
+                    <NotificationProvider>
+                        <AuthenticateProvider>
+                            <App />
+                        </AuthenticateProvider>
+                    </NotificationProvider>
+                </StoreProvider>
+            </ThemeProvider>
+        </AdaptationProvider>
+    </BrowserRouter>
 );

@@ -1,64 +1,43 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useState} from "react";
+import classNames from "classnames";
 import style from "./Like.module.scss";
 
-import {Text} from "shared/ui/text/Text";
-import {NotificationWrapper} from "shared/ui/notification/wrapper/NotificationWrapper";
+import {Button, buttonStyled} from "shared/ui/button/Button";
+import {Notification, notificationType} from "shared/ui/notification/Notification";
 import {enumSized} from "shared/ui/types";
 
-import {getCountLikeThunk, IGetCountLikeThunkReturned} from "../module/services/get-count-like-thunk";
-import {toggleLikeThunk} from "../module/services/toggle-like-thunk";
+import {toggleLikeThunk} from "../services/toggle-like-thunk";
 
 import {useAppDispatch} from "shared/lib/hooks/use-app-dispatch/useAppDispatch";
 import {useAuth} from "entities/auth";
+import {useProtectedAction} from "shared/lib/hooks/use-protected-action/useProtectedAction";
 
-import classNames from "classnames";
-import {unwrapResult} from "@reduxjs/toolkit";
-
-import {getNotificationPunishments} from "app/providers/authenticate";
+import {NotificationContext} from "shared/config/notification/notification-context";
 
 interface ILikeProps {
+    like_count: number,
+    isActive: boolean,
     id_product: string,
 }
 
-export const Like: React.FC<ILikeProps> = React.memo(({id_product}) => {
+export const Like: React.FC<ILikeProps> = React.memo(({like_count ,id_product, isActive}) => {
+    const setNotification = useContext(NotificationContext);
     const dispatch = useAppDispatch();
     const {authData} = useAuth();
 
-    const [likes, setLikes] =
-        useState<IGetCountLikeThunkReturned>({count: 0, isLicked: false});
+    const [loading, setLoading] = useState(false);
 
-    const [fetching, setFetching] = useState(false);
+    const toggleLike = useProtectedAction(() => {
+        setLoading(true)
+        dispatch(toggleLikeThunk({id_user: authData?.id || "-1", id_product:id_product})).finally(() => setLoading(false));
+    }, () => setNotification(<Notification type={notificationType.WARN}>Вы заблокированы по причине: {authData?.reason}</Notification>));
 
-    const [isOpen, setOpen] = useState(true);
-    const [notifications, setNotifications] = useState<React.ReactNode[]>([]);
-
-    useEffect(() => {
-        dispatch(getCountLikeThunk({id_user: authData?.id || "-1", id_product}))
-            .then(unwrapResult).then(res => setLikes(res))
-            .finally(() => setFetching(false));
-    }, [fetching]);
-
-    const toggleLike = () => {
-        const notifications: React.ReactNode[] = authData && getNotificationPunishments(authData) || [];
-
-        if(notifications.length !== 0){
-            setNotifications(notifications);
-            setOpen(true);
-            return;
-        }
-
-        dispatch(toggleLikeThunk({id_user: authData?.id || "-1", id_product:id_product}));
-        setFetching(true);
-    }
-
-    const mods = { [style.active]: likes.isLicked }
+    const mods = { [style.active]: isActive }
     return (
-        <>
-            <Text
+        <Button styled={buttonStyled.NONE}
                 className={classNames(style.click, mods)}
                 onClick={toggleLike}
-                size={enumSized.MIDDLE}>❤ {likes.count} </Text>
-            {isOpen && <NotificationWrapper onClosed={() => setOpen(false)}>{notifications}</NotificationWrapper>}
-        </>
+                disabled={loading}
+                size={enumSized.MIDDLE}>❤ {like_count} </Button>
     );
 });

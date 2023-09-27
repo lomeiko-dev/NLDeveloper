@@ -1,0 +1,29 @@
+.wrapper{
+  margin-bottom: 50px;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  min-width: 200px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  background: var(--board-color);
+
+  .text_header{
+    color: #fff;
+  }
+}
+
+.footer{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: var(--board-color);
+  color: #fff;
+}

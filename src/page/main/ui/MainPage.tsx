@@ -31,7 +31,7 @@ const MainPage = () => {
     }, []);
 
     return (
-        <ReducerLoader storeKey="profileDataReducer" reducer={profileDataReducer} save={false}>
+        <ReducerLoader reducers={[{storeKey: "profileDataReducer", reducer: profileDataReducer, save: false}]}>
             <div className={style.page}>
                 <Panel className={style.profile_wrapper}>
                     <Profile

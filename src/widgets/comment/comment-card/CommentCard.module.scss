@@ -1,0 +1,19 @@
+.comment{
+  background: var(--ternary-bg-color);
+  border-radius: 3px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.header{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.managment_block{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}

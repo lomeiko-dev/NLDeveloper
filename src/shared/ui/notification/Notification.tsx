@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import style from './Notification.module.scss';
 import classNames from "classnames";
 import {Panel, panelStyled} from "../panel/Panel";
@@ -9,12 +9,13 @@ export enum notificationType {
     ACCEPT = "accept"
 }
 
-interface INotificationProps {
+export interface INotificationProps {
     children: React.ReactNode,
     className?: string,
     type?: notificationType,
 }
 
+const TIMEOUT_CLOSED = 7000;
 export const Notification: React.FC<INotificationProps> = (props) => {
     const {
         children,
@@ -22,9 +23,21 @@ export const Notification: React.FC<INotificationProps> = (props) => {
         type = notificationType.ACCEPT,
     } = props;
 
+    const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+        setOpen(true);
+        setTimeout(() => {
+            setOpen(false);
+        }, TIMEOUT_CLOSED);
+    }, []);
+
     return (
-        <Panel styled={panelStyled.SHADOW} className={classNames(style.notification, className, style[type])}>
-            {children}
-        </Panel>
-    );
+        <>
+            {open &&
+                <Panel styled={panelStyled.SHADOW} className={classNames(style.notification, className, style[type])}>
+                    {children}
+                </Panel>}
+        </>
+    )
 };
