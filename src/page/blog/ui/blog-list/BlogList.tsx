@@ -1,24 +1,33 @@
-import {ReactNode, useEffect, useState} from "react";
+import React, {ReactNode, useEffect} from "react";
 import style from "./BlogList.module.scss";
-
-import {useAppDispatch} from "shared/lib/hooks/use-app-dispatch/useAppDispatch";
-import {useAppSelector} from "shared/lib/hooks/use-app-selector/useAppSelector";
-
-import {blogSelector,
-        errorSelector,
-        isLoadingSelector,
-        totalCountSelector,
-        uploadBlogsThunk} from "entities/blog";
 
 import {Image} from "shared/ui/image/Image";
 import {Text, textStyled} from "shared/ui/text/Text";
-import {BlogCard} from "../blog-card/BlogCard";
 import loader from "shared/assets/gif/loaders/loader.gif";
-import {CommentList} from "../../../../widgets/comment/CommentList";
+import {BlogItem} from "./blog-item/BlogItem";
+
+import {IBlog} from "entities/blog";
+
+interface IBlogListProps {
+    blogs: IBlog[],
+    setFetching: () => void,
+    isLoading: boolean,
+    error?: string,
+    total_count: number,
+    limit: number,
+}
 
 const CONTAINER = document.getElementsByClassName("container")[0];
-const LIMIT = 5;
-export const BlogList = () => {
+export const BlogList: React.FC<IBlogListProps> = (props) => {
+    const {
+        blogs,
+        setFetching,
+        total_count,
+        limit,
+        isLoading,
+        error,
+    } = props;
+
     useEffect(() => {
         CONTAINER.addEventListener("scroll", scrollHandler);
         return () => {
@@ -26,32 +35,13 @@ export const BlogList = () => {
         }
     }, []);
 
-    const [fetching, setFetching] = useState(true);
-    const [page, setPage] = useState(1);
-
-    const dispatch = useAppDispatch();
-
-    const blogs = useAppSelector(blogSelector) || [];
-    const totalCount = useAppSelector(totalCountSelector);
-    const isLoading = useAppSelector(isLoadingSelector);
-    const error = useAppSelector(errorSelector);
-
-    useEffect(() => {
-        if(fetching){
-            dispatch(uploadBlogsThunk({limit: LIMIT, page: page}))
-                .then(() => setPage(prevState => prevState+1))
-                .finally(() => setFetching(false));
-        }
-    }, [fetching]);
-
     const scrollHandler = () => {
         const {scrollHeight, scrollTop} = CONTAINER;
-        if (scrollHeight - (scrollTop +  window.innerHeight) < 100 && blogs?.length < totalCount + LIMIT)
-            setFetching(true);
+        if (scrollHeight - (scrollTop +  window.innerHeight) < 100 && blogs?.length < total_count + limit)
+            setFetching();
     };
 
     let contentStatus: ReactNode = null;
-
     if(isLoading)
         contentStatus = <Image className={style.loader} src={loader}/>;
     else if(error !== undefined)
@@ -59,9 +49,7 @@ export const BlogList = () => {
 
     return (
         <div className={style.list} onScroll={scrollHandler}>
-            {blogs && blogs.map(item =>
-                <BlogCard key={item.id} blog={item}/>
-            )}
+            {blogs && blogs.map(item => <BlogItem key={item.id} {...item}/>)}
             {contentStatus}
         </div>
     );

@@ -9,4 +9,6 @@ export interface IComment {
 export interface ICommentsScheme {
     comments: IComment[],
     idChanged?: string,
+    isLoading: boolean,
+    error?: string,
 }

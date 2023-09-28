@@ -1,52 +1,52 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import style from './CommentList.module.scss';
 
-import {useAppDispatch} from "shared/lib/hooks/use-app-dispatch/useAppDispatch";
-import { commentsSelector, uploadCommentsThunk} from "entities/comments";
-import {useAppSelector} from "shared/lib/hooks/use-app-selector/useAppSelector";
+import {IComment} from "entities/comments";
 
-import {CommentCard} from "./comment-card/CommentCard";
+import {Text, textStyled} from "shared/ui/text/Text";
 import {Button, buttonStyled} from "shared/ui/button/Button";
-import {FormComment} from "features/comment-crud";
 
-import {getChangedSelector} from "entities/comments";
+import loader from "shared/assets/gif/loaders/loader.gif";
+import {useAuth} from "entities/auth";
+import {CommentItem} from "./comment-item/CommentItem";
 
 interface ICommentListProps {
-    id_product: string,
+    comments: IComment[],
     total_count: number,
+    isLoading: boolean,
+    error?: string,
+    showMoreHandler: () => void,
 }
 
-const LIMIT = 3;
-export const CommentList: React.FC<ICommentListProps> = React.memo(({id_product, total_count}) => {
-    const dispatch = useAppDispatch();
+export const CommentList: React.FC<ICommentListProps> = React.memo((props) => {
+    const {
+        comments,
+        total_count,
+        showMoreHandler,
+        isLoading,
+        error
+    } = props;
 
-    const comments = useAppSelector(state => commentsSelector(state, id_product));
-    const changedComment = useAppSelector(getChangedSelector);
+    const {authData} = useAuth();
 
-    const [page, setPage] = useState(1);
-
-    useEffect(() => {
-        showMoreHandler();
-    }, []);
-
-    const showMoreHandler = () => {
-        dispatch(uploadCommentsThunk({id_product: id_product, page: page, limit: LIMIT}))
-            .finally(() => setPage(prevState => prevState + 1));
+    if(error !== undefined){
+        return (
+            <div className={style.list}>
+                <Text styled={textStyled.ERROR}>{error}</Text>
+            </div>
+        )
     }
 
     const isShowMore = comments.length < total_count
     return (
         <div className={style.list}>
-            {comments.map(com => <CommentCard key={com.id} {...com}/>)}
-            { isShowMore &&
-                <Button onClick={showMoreHandler} styled={buttonStyled.NONE}>Показать ещё...</Button> }
-
-            {changedComment === undefined ?
-                <FormComment defaultBody="" defaultName="" id_product={id_product}/> :
-                <FormComment
-                    idChanged={changedComment.id}
-                    defaultBody={changedComment.body} defaultName={changedComment.name}
-                    id_product={id_product}/>}
+            {isLoading ?
+                <img src={loader} alt="loaded"/> :
+                <>
+                    {comments.map(com => <CommentItem {...com}/>)}
+                    { isShowMore &&
+                        <Button onClick={showMoreHandler} styled={buttonStyled.NONE}>Показать ещё...</Button> }
+                </>}
         </div>
     );
 });

@@ -3,6 +3,7 @@ import {IThunk} from "app/providers/store";
 import {LIKE} from "shared/api/consts";
 import {removeLike, setLike} from "entities/likes";
 import {ILike} from "entities/likes";
+import {generateID} from "shared/lib/utils/generateID";
 
 interface IToggleLikeThunkProps {
     id_user: string,
@@ -17,7 +18,7 @@ export const toggleLikeThunk = createAsyncThunk<void, IToggleLikeThunkProps, ITh
 
             if(like === undefined){
                 const response =
-                    await thunkAPI.extra.apiInstance.post<ILike>(LIKE, { id_user: id_user, id_product: id_product});
+                    await thunkAPI.extra.apiInstance.post<ILike>(LIKE, { id: generateID(), id_user: id_user, id_product: id_product});
                 thunkAPI.dispatch(setLike(response.data));
             }
             else{

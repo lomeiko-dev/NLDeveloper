@@ -7,6 +7,4 @@ export { totalCountSelector } from "./model/selectors/total-count/total-count-se
 export { isLoadingSelector } from "./model/selectors/is-loading/is-loading-selector";
 export { errorSelector } from "./model/selectors/error/error-selector";
 
-export { BlogBody } from "./ui/blog-body/BlogBody";
-export { BlogTitle } from "./ui/blog-title/BlogTitle";
-export { BlogTag } from "./ui/blog-tag/BlogTag";
+export { BlogCard } from "./ui/blog-card/BlogCard";

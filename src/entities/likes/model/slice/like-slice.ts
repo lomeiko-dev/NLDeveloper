@@ -1,5 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {ILike, ILikeScheme} from "../types/like-scheme";
+import {getLikesThunk} from "../services/get-likes-thunk";
 
 const initialState: ILikeScheme = {
     likes: [],

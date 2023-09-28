@@ -11,8 +11,6 @@ import {useAuth} from "entities/auth";
 import {addCommentThunk} from "../../services/add-comment-thunk";
 import {changeCommentThunk} from "../../services/change-comment-thunk";
 
-import {IComment} from "entities/comments";
-
 interface IFormAddCommentProps {
     id_product: string,
     defaultName?: string,
@@ -31,6 +29,7 @@ export const FormComment: React.FC<IFormAddCommentProps> = React.memo((props) =>
     const dispatch = useAppDispatch();
     const {authData} = useAuth();
 
+    const [isLoading, setLoading] = useState(false);
     const [name, setName] = useState("");
     const [body, setBody] = useState("");
 
@@ -49,19 +48,15 @@ export const FormComment: React.FC<IFormAddCommentProps> = React.memo((props) =>
     const changeBodyHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         setBody(e.target.value);
     }
-    const sendHandler = () => {
-        const comment: IComment = {
-            id: "",
-            id_user: authData?.id || "-1",
-            id_product: id_product,
-            body: body,
-            name: name,
-        }
 
+    const sendHandler = () => {
+        setLoading(true);
         if(idChanged === undefined)
-            dispatch(addCommentThunk(comment));
+            dispatch(addCommentThunk({id_product, name, body, id_user: authData?.id || "-1"}))
+                .finally(() => setLoading(false));
         else
-            dispatch(changeCommentThunk({id: idChanged, data: comment}));
+            dispatch(changeCommentThunk({id: idChanged, id_product, name, body, id_user: authData?.id || "-1"}))
+                .finally(() => setLoading(false));
         clearState();
     }
 
@@ -69,7 +64,7 @@ export const FormComment: React.FC<IFormAddCommentProps> = React.memo((props) =>
         <Panel className={style.form}>
             <Field onChange={changeNameHandler} type="text" value={name} placeholder="Имя"/>
             <Field multiline={true} onChange={changeBodyHandler} value={body} placeholder="Комментарий"/>
-            <Button onClick={sendHandler} styled={buttonStyled.FILLED}>{idChanged === undefined ? "send" : "changed"}</Button>
+            <Button disabled={isLoading} onClick={sendHandler} styled={buttonStyled.FILLED}>{idChanged === undefined ? "send" : "changed"}</Button>
         </Panel>
     );
 });

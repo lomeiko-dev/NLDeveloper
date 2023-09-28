@@ -1,9 +1,12 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IComment, ICommentsScheme} from "../types/comments-sheme";
+import {uploadCommentsThunk} from "../services/upload-comments-thunk";
 
 const initialState: ICommentsScheme = {
     comments: [],
     idChanged: undefined,
+    isLoading: false,
+    error: undefined,
 }
 
 const commentsSlice = createSlice({
@@ -31,6 +34,21 @@ const commentsSlice = createSlice({
             }
             state.idChanged = undefined;
         }
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(uploadCommentsThunk.pending, state => {
+                state.isLoading = true;
+                state.error = undefined;
+            })
+            .addCase(uploadCommentsThunk.fulfilled, state => {
+                state.isLoading = false;
+                state.error = undefined;
+            })
+            .addCase(uploadCommentsThunk.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            })
     }
 })
 

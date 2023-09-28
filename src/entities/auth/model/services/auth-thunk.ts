@@ -4,6 +4,7 @@ import {IThunk} from "app/providers/store";
 import {getDeviceId} from "../../lib/utils/get-device-id";
 import {AUTH} from "shared/api/consts";
 import {setAuth} from "../slice/auth-slice";
+import {generateID} from "../../../../shared/lib/utils/generateID";
 
 export const authThunk = createAsyncThunk<void, void, IThunk>("auth/authThunk",
     async (_, thunkAPI) => {
@@ -18,7 +19,7 @@ export const authThunk = createAsyncThunk<void, void, IThunk>("auth/authThunk",
             // registration
             if(data === undefined){
                 data = await thunkAPI.extra.apiInstance.post<IAuth>(AUTH, {
-                    id: null,
+                    id: generateID(),
                     idDevice: device_id,
                     isBlocked: false,
                 }).then(res => res.data);

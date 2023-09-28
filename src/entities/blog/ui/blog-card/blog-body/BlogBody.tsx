@@ -4,8 +4,8 @@ import style from "./BlogBody.module.scss";
 import {Text} from "shared/ui/text/Text";
 import {enumSized} from "shared/ui/types";
 
-import {IBlogBody} from "../../model/types/blog-scheme";
 import {GetBlockBody} from "./body-components";
+import {IBlogBody} from "../../../model/types/blog-scheme";
 
 interface IBodyBlogProps {
     body: IBlogBody[];

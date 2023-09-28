@@ -5,7 +5,7 @@ import {Panel, panelGrid} from "shared/ui/panel/Panel";
 import {Text} from "shared/ui/text/Text";
 import {enumSized} from "shared/ui/types";
 
-import {IBlog} from "../../model/types/blog-scheme";
+import {IBlog} from "../../../model/types/blog-scheme";
 import classNames from "classnames";
 
 interface IBodyTitleProps extends Pick<IBlog, "title" | "sub_title">{

@@ -1,8 +1,8 @@
 import React, {ReactNode} from "react";
-import {IBlogBody} from "../../../model/types/blog-scheme";
 import {BodyText} from "./body-text/BodyText";
 import {BodyImage} from "./body-image/BodyImage";
 import {BodyCode} from "./body-code/BodyCode";
+import {IBlogBody} from "../../../../model/types/blog-scheme";
 
 export const GetBlockBody = (body: IBlogBody): ReactNode => {
     switch (body.type){
