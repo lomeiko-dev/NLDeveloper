@@ -1,9 +1,10 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {IComment, ICommentsScheme} from "../types/comments-sheme";
+import {IComment, ICommentsScheme, totalCount} from "../types/comments-sheme";
 import {uploadCommentsThunk} from "../services/upload-comments-thunk";
 
 const initialState: ICommentsScheme = {
     comments: [],
+    totalCounts: [],
     idChanged: undefined,
     isLoading: false,
     error: undefined,
@@ -13,8 +14,9 @@ const commentsSlice = createSlice({
     name: "comments",
     initialState: initialState,
     reducers: {
-        uploadComments: (state, action: PayloadAction<IComment[]>) => {
-            state.comments = [...state.comments, ...action.payload];
+        uploadComments: (state, action: PayloadAction<{comments: IComment[], totalCounts: totalCount}>) => {
+            state.comments = [...state.comments, ...action.payload.comments];
+            state.totalCounts.push(action.payload.totalCounts);
         },
         addComment: (state, action: PayloadAction<IComment>) => {
             state.comments.unshift(action.payload);

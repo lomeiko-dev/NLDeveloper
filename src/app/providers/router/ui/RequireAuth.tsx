@@ -10,6 +10,7 @@ interface IRequireAuthProps {
 export const RequireAuth:React.FC<IRequireAuthProps> = ({children}) => {
     const {isAuth} = useAuth();
     const navigate = useNavigate();
+
     useEffect(() => {
         if(!isAuth){
             navigate(pathRoute.notAuth);

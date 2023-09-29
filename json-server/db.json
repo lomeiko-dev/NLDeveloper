@@ -1,13 +1,18 @@
 {
   "auth": [
     {
-      "id": "id76b677c44cbc1",
+      "id": "id43031cb143575",
+      "idDevice": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 YaBrowser/23.7.5.734 Yowser/2.5 Safari/537.36-Win32",
+      "isBlocked": false
+    },
+    {
+      "id": "id9da4f120a33f9",
       "idDevice": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36-Win32",
       "isBlocked": false
     },
     {
-      "id": "id907337ae6cc86",
-      "idDevice": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 YaBrowser/23.7.5.734 Yowser/2.5 Safari/537.36-Win32",
+      "id": "id8e032dde1f2fd",
+      "idDevice": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1-Win32",
       "isBlocked": false
     }
   ],
@@ -21,6 +26,11 @@
           "type": "image",
           "title": "",
           "content": "https://treningi4you.com/upload/iblock/d87/js_react_shkola_programmirovaniya_khekslet.jpg"
+        },
+        {
+          "type": "code",
+          "title": "Что такое Redux?",
+          "content": "import { createSelector } from 'reselect'\n\nexport const commentsSelector = createSelector(\n  (state: IStore) => state.commentsReducer?.comments,\n  (_: IStore, id_product: string) => id_product,\n  (comments, id_product) => comments.filter(item => item.id_product === id_product)\n)чё"
         },
         {
           "type": "text",
@@ -146,7 +156,7 @@
         {
           "type": "code",
           "title": "Что такое Redux?",
-          "content": "import React, { useEffect, useState, useCallback } from 'react';\n\nimport api from './api';\nimport type { RESPONSE_DATA } from './api';\n\nimport './App.css';\n\nfunction App() {\n  const [data, setData] = useState<RESPONSE_DATA | null>(null);\n  const [page, setPage] = useState(1);\n  const [isLoading, setLoading] = useState(false);\n  const [error, setError] = useState<string | null>(null);\n\n  useEffect(() => {\n    const fetchData = async () => {\n      setLoading(true);\n      setError(null);\n\n      try {\n        const response = await api.get.data(page);\n        setData(response);\n      } catch (err) {\n        setError(\n          err instanceof Error ? err.message : 'Unknown Error: api.get.data'\n        );\n        setData(null);\n      } finally {\n        setLoading(false);\n      }\n    };\n\n    fetchData();\n  }, [page]);\n\n  return <div className='App'>...</div>;\n}\n\nexport default App;"
+          "content": "import { createSelector } from 'reselect'\n\nexport const commentsSelector = createSelector(\n  (state: IStore) => state.commentsReducer?.comments,\n  (_: IStore, id_product: string) => id_product,\n  (comments, id_product) => comments.filter(item => item.id_product === id_product)\n)чё"
         },
         {
           "type": "text",
@@ -163,44 +173,8 @@
       "createdAt": "17.09.2023 15:12"
     }
   ],
-  "Likes": [
-    {
-      "id": "iddd5bc8ab5eb41",
-      "id_user": "id907337ae6cc86",
-      "id_product": "id2d678ea9224d"
-    },
-    {
-      "id": "id753b4e43694fc",
-      "id_user": "id907337ae6cc86",
-      "id_product": "id76b677f44cbc1"
-    },
-    {
-      "id": "idace1adbb91407",
-      "id_user": "id907337ae6cc86",
-      "id_product": "id76b677c4dg5bc1"
-    },
-    {
-      "id": "id38b8b96e7a4a",
-      "id_user": "id907337ae6cc86",
-      "id_product": "id76b677c44csd2c1"
-    }
-  ],
-  "comments": [
-    {
-      "id": "id8402b91ed5b5a",
-      "id_product": "id76b674c44cbc1",
-      "name": "dgsdg",
-      "body": "sdgsdg",
-      "id_user": "id907337ae6cc86"
-    },
-    {
-      "id": "id583553e835b4",
-      "id_product": "id76b674c44cbc1",
-      "name": "czxzvas",
-      "body": "asfasf",
-      "id_user": "id907337ae6cc86"
-    }
-  ],
+  "Likes": [],
+  "comments": [],
   "profile": {
     "id": "admin",
     "avatar": "https://yobte.ru/uploads/posts/2019-11/programmist-42-foto-18.jpg",

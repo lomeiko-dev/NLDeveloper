@@ -16,7 +16,10 @@ export const uploadCommentsThunk = createAsyncThunk<IComment[], IUploadCommentsT
             const response =
                 await thunkAPI.extra.apiInstance.get<IComment[]>(COMMENTS + `?id_product_like=${id_product}&_limit=${limit}&_page=${page}`);
 
-            thunkAPI.dispatch(uploadComments(response.data));
+            thunkAPI.dispatch(uploadComments({
+                comments: response.data,
+                totalCounts: {id: id_product, count: response.headers["x-total-count"]}
+            }));
 
             return response.data;
         }

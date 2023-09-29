@@ -27,5 +27,6 @@ export const AuthenticateProvider: React.FC<IAuthenticateProviderProps> = ({chil
         </>
     )
 
-    return children
+    if(authData !== undefined)
+        return children
 };
